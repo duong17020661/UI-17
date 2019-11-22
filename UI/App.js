@@ -8,6 +8,7 @@ import Open3 from './components/Open3';
 import SignUp from './components/SignUp';
 import ChartsScreen from './components/ChartsScreen';
 import App1 from './App1';
+import App2 from './screens/Volcabulary/App';
 //import all the screens we are going to switch
 const App = createStackNavigator({
   //Constant which holds all the screens like index of any book
@@ -19,6 +20,7 @@ const App = createStackNavigator({
     SignUp: { screen: SignUp },
     ChartsScreen: { screen: ChartsScreen },
     App1: {screen: App1},
+    App2: {screen: App2},
   },
 );
 export default createAppContainer(App);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View ,Text} from 'react-native';
 import SvgUri from 'react-native-svg-uri';
-import HomeScreens from './HomeScreens/views/HomeScreen';
 
 
 class HomeScreen extends Component {
@@ -11,11 +10,11 @@ class HomeScreen extends Component {
 
   render() {
     return (
-        <View style={{flex: 1}}>
-           <HomeScreens/>
-        </View>
+      <View>
+        <Text>Home</Text>
+      </View>
     );
-}
+  }
 }
 
 export default HomeScreen;

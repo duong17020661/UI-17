@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { View ,Text} from 'react-native';
 import SvgUri from 'react-native-svg-uri';
-import HomeScreens from './HomeScreens/views/HomeScreen';
 
 
-class HomeScreen extends Component {
+class StoreScreen extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-        <View style={{flex: 1}}>
-           <HomeScreens/>
-        </View>
+      <View>
+        <Text>Store</Text>
+      </View>
     );
-}
+  }
 }
 
-export default HomeScreen;
+export default StoreScreen;
