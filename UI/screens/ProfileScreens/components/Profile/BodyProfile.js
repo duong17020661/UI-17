@@ -5,6 +5,7 @@ import {
     Text,
     Dimensions,
     TouchableOpacity,
+    Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 var widthScreen = Dimensions.get('window').width;
@@ -19,10 +20,13 @@ class BodyProfile extends Component {
                     marginRight: 0.05 * widthScreen,
                     flex: 1,
                 }}
-                // onPress={{}}
+            // onPress={{}}
             >
                 <View style={{ flex: 1 }}>
-                    <Icon name={icon} size={36} color="#bf1313" />
+                    <Image
+                        style={{ width: 30, height: 30, tintColor: '#ff3300' }}
+                        source={icon}
+                    />
                 </View>
                 <View style={{
                     flex: 5,
