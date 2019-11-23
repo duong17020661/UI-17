@@ -24,7 +24,7 @@ class BodyProfile extends Component {
             >
                 <View style={{ flex: 1 }}>
                     <Image
-                        style={{ width: 30, height: 30, tintColor: '#ff3300' }}
+                        style={{ width: 30, height: 30, tintColor: '#e62e00' }}
                         source={icon}
                     />
                 </View>

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, Image, Text, View, StatusBar } from 'react-native';
+import { ScrollView, Image, Text, View, StatusBar, TouchableOpacity } from 'react-native';
 import Exercise from '../../components/Exercise/Practice';
 import Level from '../../components/Exercise/Level';
+
 
 
 export default class HomeScreen extends Component {
     render() {
         return (
             <View>
-
                 <ScrollView>
                     <View>
                         <Level uri={'https://imgur.com/fRBEopr.png'} />
@@ -18,10 +18,11 @@ export default class HomeScreen extends Component {
                             text='Cơ bản' 
                             uri={'https://imgur.com/5VhV1RM.png' } 
                             backgroundColor = '#66ff1a' 
+                           
                             />
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Exercise text='Tính từ' uri={'https://imgur.com/tMzBSO7.png'} backgroundColor = '#66ff1a'/>
+                        <Exercise text='Tính từ' uri={'https://imgur.com/tMzBSO7.png'} backgroundColor = '#66ff1a' />
                         <Exercise text='Động từ' uri={'https://imgur.com/tFrM33U.png'} backgroundColor = '#66ff1a'/>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
