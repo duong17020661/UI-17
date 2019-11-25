@@ -23,8 +23,6 @@ class Main extends Component {
     }, 3000)
   }
   render(){
-    // remove warning gin react-native 
-    console.disableYellowBox = true
     const { currentScreen } = this.state
     let mainScreen = currentScreen === 'Splash' ? <Splash /> : <App />
     return mainScreen
