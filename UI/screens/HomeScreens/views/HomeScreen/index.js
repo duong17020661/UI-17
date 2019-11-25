@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import { ScrollView, Image, Text, View, StatusBar, TouchableOpacity } from 'react-native';
+import { ScrollView, Image, Text, View, StatusBar, Button, TouchableOpacity } from 'react-native';
 import Exercise from '../../components/Exercise/Practice';
 import Level from '../../components/Exercise/Level';
 
+import { withNavigation } from 'react-navigation';
 
-
-export default class HomeScreen extends Component {
+class HomeScreen extends Component {
+    
     render() {
+      
         return (
             <View>
+                <Button
+                    title='Press me'
+                   
+                />
+                    
                 <ScrollView>
                     <View>
                         <Level uri={'https://imgur.com/fRBEopr.png'} />
@@ -73,3 +80,4 @@ export default class HomeScreen extends Component {
         );
     }
 }
+export default HomeScreen;

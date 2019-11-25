@@ -5,6 +5,7 @@ import {
     Text,
     Dimensions,
     ScrollView,
+    Button,
 } from 'react-native';
 import HeaderProfile from '../../components/Profile/HeaderProfile';
 import BodyProfile from '../../components/Profile/BodyProfile';

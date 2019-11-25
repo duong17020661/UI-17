@@ -10,27 +10,32 @@ import ProflieScreen from '../screens/ProfileScreen';
 import StoreScreen from '../screens/StoreScreen';
 
 const HomeStack = createStackNavigator(
+
   {
     Home: () => <HomeScreen />,
   },
   {
     initialRouteName: 'Home',
     headerMode: 'none',
+
   });
 
 HomeStack.navigationOptions = {
   tabBarLabel: " ",
-  tabBarIcon: ({ focused, horizontal, tintColor }) => 
+  tabBarIcon: ({ focused, horizontal, tintColor }) =>
     focused ? (
-      <SvgUri
-      />
-    ) : (
       <SvgUri
         width="40"
         height="40"
         source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/learn-inactive2.svg' }}
       />
-    ),
+    ) : (
+        <SvgUri
+          width="40"
+          height="40"
+          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/learn-inactive2.svg' }}
+        />
+      ),
 };
 
 HomeStack.path = '';
@@ -46,7 +51,7 @@ const ProfileStack = createStackNavigator(
 
 ProfileStack.navigationOptions = {
   tabBarLabel: " ",
-  tabBarIcon: ({ focused, horizontal, tintColor }) => 
+  tabBarIcon: ({ focused, horizontal, tintColor }) =>
     focused ? (
       <SvgUri
         width="45"
@@ -54,12 +59,12 @@ ProfileStack.navigationOptions = {
         source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/profile.svg' }}
       />
     ) : (
-      <SvgUri
-        width="45"
-        height="45"
-        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/profile-inactive2.svg' }}
-      />
-    ),
+        <SvgUri
+          width="45"
+          height="45"
+          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/profile-inactive2.svg' }}
+        />
+      ),
 };
 
 ProfileStack.path = '';
@@ -75,7 +80,7 @@ const StoreStack = createStackNavigator(
 
 StoreStack.navigationOptions = {
   tabBarLabel: " ",
-  tabBarIcon: ({ focused, horizontal, tintColor }) => 
+  tabBarIcon: ({ focused, horizontal, tintColor }) =>
     focused ? (
       <SvgUri
         width="40"
@@ -83,12 +88,12 @@ StoreStack.navigationOptions = {
         source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop.svg' }}
       />
     ) : (
-      <SvgUri
-        width="40"
-        height="40"
-        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop-inactive2.svg' }}
-      />
-    )
+        <SvgUri
+          width="40"
+          height="40"
+          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop-inactive2.svg' }}
+        />
+      )
 };
 
 StoreStack.path = '';
@@ -112,9 +117,12 @@ ChartsStack.navigationOptions = {
         source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/badge_bronze_blank.svg' }}
       />
     ) : (
-      <SvgUri
-      />
-    ),
+        <SvgUri
+          width="35"
+          height="35"
+          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/badge_bronze_blank.svg' }}
+        />
+      ),
 };
 
 ChartsStack.path = '';
