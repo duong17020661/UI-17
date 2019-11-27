@@ -89,7 +89,7 @@ export default class Login extends Component {
         </View>
         <TouchableOpacity
         style={styles.loginButton}
-        onPress={() => this.props.navigation.navigate('App1')}>
+        onPress={() => this.props.navigation.navigate('Main')}>
           <Text style={styles.tittleButton}> Đăng nhập </Text>
         </TouchableOpacity>
         <Divider style={styles.divider}></Divider>

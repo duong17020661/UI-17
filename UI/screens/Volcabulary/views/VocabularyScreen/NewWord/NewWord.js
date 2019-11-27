@@ -5,11 +5,12 @@ import {
     Dimensions,
     Text,
     TouchableOpacity,
+    Button,
 } from 'react-native';
 
 import ProgressBar from '../../../components/ProgressBar';
 import Question from '../../../components/Question';
-import CheckButton from '../../../components/CheckButton';
+import CheckButton from '../../../components/CheckButton/check';
 import Answer from '../../../components/Answer';
 import IconClose from '../../../components/Icons/IconClose';
 
@@ -64,9 +65,13 @@ class NewWord extends Component {
         console.log("da nhan")
     }
     render() {
+       
         return (
             <View style={styles.container}>
-
+                <Button
+                    title='click'
+                    onPress={()=> this.props.navigation.navigate('Open1')}
+                />
                 <View style={{
                     flex: 1,
                     flexDirection: 'row',
@@ -129,7 +134,8 @@ class NewWord extends Component {
                 </View>
 
                 <View style={{ flex: 1 }}>
-                    <CheckButton trigerParentUpdateProcess={this.updateProcess} check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} />
+                    {/* <CheckButton trigerParentUpdateProcess={this.updateProcess} check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} /> */}
+                    <CheckButton navigation={this.props.navigation}/>
                 </View>
 
             </View>

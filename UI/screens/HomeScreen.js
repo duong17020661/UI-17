@@ -12,7 +12,7 @@ class HomeScreen extends Component {
   render() {
     return (
         <View style={{flex: 1}}>
-           <HomeScreens/>
+           <HomeScreens navigation={this.props.navigation}/>
         </View>
     );
 }
