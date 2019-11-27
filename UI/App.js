@@ -34,7 +34,8 @@ HomeStack.navigationOptions = {
       <SvgUri
         width="40"
         height="40"
-        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/learn-inactive2.svg' }}
+
+        source={{ uri: 'http://thenewcode.com/assets/images/thumbnails/git_icon.svg' }}
       />
     ) : (
         <SvgUri

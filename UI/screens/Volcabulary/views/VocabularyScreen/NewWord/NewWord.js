@@ -10,7 +10,7 @@ import {
 
 import ProgressBar from '../../../components/ProgressBar';
 import Question from '../../../components/Question';
-import CheckButton from '../../../components/CheckButton/check';
+import CheckButton from '../../../components/CheckButton/index';
 import Answer from '../../../components/Answer';
 import IconClose from '../../../components/Icons/IconClose';
 
@@ -134,8 +134,8 @@ class NewWord extends Component {
                 </View>
 
                 <View style={{ flex: 1 }}>
-                    {/* <CheckButton trigerParentUpdateProcess={this.updateProcess} check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} /> */}
-                    <CheckButton navigation={this.props.navigation}/>
+                    <CheckButton trigerParentUpdateProcess={this.updateProcess} check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} navigation={this.props.navigation}/>
+                    {/* <CheckButton navigation={this.props.navigation}/> */}
                 </View>
 
             </View>

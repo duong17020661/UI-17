@@ -28,8 +28,8 @@ export default class CheckButton extends Component {
             'My Alert Msg',
             [
                 { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                { text: 'OK', onPress: () => console.log('OK Pressed') },
+                { text: 'Cancel', onPress: () => console.log('Open1'), style: 'cancel' },
+                { text: 'OK', onPress: () => this.props.navigation.navigate('NewWord')},
             ],
             { cancelable: false }
         )
