@@ -54,6 +54,7 @@ class StoreScreen extends Component {
           style={styles.In}
           autoFocus="true"
           keyboardType='default'
+        
         />
 
         <TouchableOpacity

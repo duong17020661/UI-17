@@ -15,14 +15,26 @@ class CheckButton extends Component {
         super(props)
     }
 
-    functionOne = () => {
+    functionOne = (numberScreen) => {
+        numberScreen === '1' ?
         Alert.alert(
-            'Alert Title',
+            numberScreen,
             'My Alert Msg',
             [
                 { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                { text: 'Cancel', onPress: () => this.props.navigation.navigate('Open1'), style: 'cancel' },
-                { text: 'OK', onPress: () => this.props.navigation.navigate('NewWord') },
+                { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord'), style: 'cancel' },
+                { text: 'OK', onPress: () => this.props.navigation.navigate('NewWord2') },
+            ],
+            { cancelable: false }
+        )
+        : 
+        Alert.alert(
+            numberScreen,
+            'My Alert Msg',
+            [
+                { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+                { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord2'), style: 'cancel' },
+                { text: 'OK', onPress: () => this.props.navigation.navigate('Point') },
             ],
             { cancelable: false }
         )
@@ -31,7 +43,7 @@ class CheckButton extends Component {
 
     }
     render() {
-        const { trigerParentUpdateProcess, check, checkItem } = this.props;
+        const {check, checkItem, numberScreen} = this.props;
         let a = checkItem === 1 || checkItem === 4 ? 'success' : 'error'
         return (
             <View>
@@ -40,7 +52,7 @@ class CheckButton extends Component {
                         styles.container,
                         check ? styles.changeBackgroundColorGray : styles.changeBackgroundColorGreen
                     ]}
-                    onPress={() => { this.functionOne(); this.functionTwo(); }}
+                    onPress={() => this.functionOne(numberScreen)}
                 >
                     <Text style={styles.text}>KIỂM TRA</Text>
                 </TouchableOpacity>

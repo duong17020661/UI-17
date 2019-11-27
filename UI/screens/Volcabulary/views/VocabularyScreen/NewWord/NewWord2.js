@@ -18,7 +18,7 @@ import IconClose from '../../../components/Icons/IconClose';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
 
-class NewWord extends Component {
+class NewWord2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -91,7 +91,7 @@ class NewWord extends Component {
                             borderRadius={10}
                             height={18}
                             width={widthScreen * 0.9}
-                            progress={0}
+                            progress={0.5}
                         />
                     </View>
                 </View>
@@ -101,7 +101,7 @@ class NewWord extends Component {
                     marginLeft: 0.05 * widthScreen,
                     marginRight: 0.05 * widthScreen,
                 }}>
-                    <Question titleQuestion='Chọn đáp án đúng: ' bodyQuestion='Đâu là "quả dâu" ?' />
+                    <Question titleQuestion='Chọn đáp án đúng: ' bodyQuestion='Đâu là "môn bóng đá" ?' />
                 </View>
 
                 <View style={{
@@ -130,8 +130,8 @@ class NewWord extends Component {
                 </View>
 
                 <View style={{ flex: 1 }}>
-                    <CheckButton check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} navigation={this.props.navigation} numberScreen='1'/>
-                    {/* <CheckButton navigation={this.props.navigation}/> */}
+                    <CheckButton check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} navigation={this.props.navigation} numberScreen='2'/>
+                   
                 </View>
 
             </View>
@@ -144,4 +144,4 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     }
 })
-export default NewWord;
+export default NewWord2;

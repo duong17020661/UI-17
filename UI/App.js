@@ -16,7 +16,8 @@ import ChartsScreen from './screens/ChartsScreen';
 import ProflieScreen from './screens/ProfileScreen';
 import StoreScreen from './screens/StoreScreen';
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
-
+import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
+import Point from './screens/Volcabulary/views/Point/index';
 
 const HomeStack = createStackNavigator(
   {
@@ -35,7 +36,7 @@ HomeStack.navigationOptions = {
         width="40"
         height="40"
 
-        source={{ uri: 'http://thenewcode.com/assets/images/thumbnails/git_icon.svg' }}
+        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/learn.svg' }}
       />
     ) : (
         <SvgUri
@@ -47,6 +48,67 @@ HomeStack.navigationOptions = {
 };
 
 HomeStack.path = '';
+
+
+
+
+const ChartsStack = createStackNavigator(
+  {
+    Charts: { screen: ChartsScreen },
+  },
+  {
+    initialRouteName: 'Charts',
+    headerMode: 'none',
+  });
+
+ChartsStack.navigationOptions = {
+  tabBarLabel: " ",
+  tabBarIcon: ({ focused, horizontal, tintColor }) =>
+    focused ? (
+      <SvgUri
+        width="35"
+        height="35"
+        // source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/badge_bronze_blank.svg' }}
+        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop.svg' }}
+      />
+    ) : (
+        <SvgUri
+          width="35"
+          height="35"
+          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop-inactive2.svg' }}
+        />
+      ),
+};
+ChartsStack.path = '';
+
+const StoreStack = createStackNavigator(
+  {
+    Store: { screen: StoreScreen },
+  },
+  {
+    initialRouteName: 'Store',
+    headerMode: 'none',
+  });
+
+StoreStack.navigationOptions = {
+  tabBarLabel: " ",
+  tabBarIcon: ({ focused, horizontal, tintColor }) =>
+    focused ? (
+      <SvgUri
+        width="40"
+        height="40"
+        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/discuss.svg' }}
+      />
+    ) : (
+        <SvgUri
+          width="40"
+          height="40"
+          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/discuss-inactive.svg' }}
+        />
+      )
+};
+StoreStack.path = '';
+
 
 const ProfileStack = createStackNavigator(
   {
@@ -77,70 +139,12 @@ ProfileStack.navigationOptions = {
 
 ProfileStack.path = '';
 
-const StoreStack = createStackNavigator(
-  {
-    Store: { screen: StoreScreen },
-  },
-  {
-    initialRouteName: 'Store',
-    headerMode: 'none',
-  });
-
-StoreStack.navigationOptions = {
-  tabBarLabel: " ",
-  tabBarIcon: ({ focused, horizontal, tintColor }) =>
-    focused ? (
-      <SvgUri
-        width="40"
-        height="40"
-        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop.svg' }}
-      />
-    ) : (
-        <SvgUri
-          width="40"
-          height="40"
-          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/icons/shop-inactive2.svg' }}
-        />
-      )
-};
-
-StoreStack.path = '';
-
-const ChartsStack = createStackNavigator(
-  {
-    Charts: { screen: ChartsScreen },
-  },
-  {
-    initialRouteName: 'Charts',
-    headerMode: 'none',
-  });
-
-ChartsStack.navigationOptions = {
-  tabBarLabel: " ",
-  tabBarIcon: ({ focused, horizontal, tintColor }) =>
-    focused ? (
-      <SvgUri
-        width="35"
-        height="35"
-        source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/badge_bronze_blank.svg' }}
-      />
-    ) : (
-        <SvgUri
-          width="35"
-          height="35"
-          source={{ uri: 'https://d35aaqx5ub95lt.cloudfront.net/images/leagues/badge_bronze_blank.svg' }}
-        />
-      ),
-};
-
-ChartsStack.path = '';
-
 const tabNavigator = createBottomTabNavigator(
   {
     HomeStack,
-    ProfileStack,
-    ChartsStack,
     StoreStack,
+    ChartsStack,
+    ProfileStack,
   },
   {
     tabBarOptions: {
@@ -158,7 +162,8 @@ const App = createSwitchNavigator({
   Login: { screen: Login },
   Main: tabNavigator,
   NewWord: { screen: NewWord },
-
+  NewWord2: {screen: NewWord2},
+  Point: {screen: Point},
   Open1: { screen: Open1 },
   Open2: { screen: Open2 },
   Open3: { screen: Open3 },
