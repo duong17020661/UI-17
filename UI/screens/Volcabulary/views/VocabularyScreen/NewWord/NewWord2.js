@@ -112,18 +112,18 @@ class NewWord2 extends Component {
                 }}>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_A}>
-                            <Answer url={require('../../../assets/images/strawberry-icon.png')} text='Strawberry' flag='1' isActive={this.state.activeIndex === 1} />
+                            <Answer url={require('../../../assets/images/swimming.png')} text='Swimming' flag='1' isActive={this.state.activeIndex === 1} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_B}>
-                            <Answer url={require('../../../assets/images/apple.png')} text='Apple' flag='2' isActive={this.state.activeIndex === 2} />
+                            <Answer url={require('../../../assets/images/football.png')} text='Football' flag='2' isActive={this.state.activeIndex === 2} />
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_C}>
-                            <Answer url={require('../../../assets/images/banana.png')} text='Banana' flag='3' isActive={this.state.activeIndex === 3} />
+                            <Answer url={require('../../../assets/images/basketball.png')} text='Basketball' flag='3' isActive={this.state.activeIndex === 3} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_D}>
-                            <Answer url={require('../../../assets/images/orange.png')} text='Orange' flag='4' isActive={this.state.activeIndex === 4} />
+                            <Answer url={require('../../../assets/images/volleyball.png')} text='Volleyball' flag='4' isActive={this.state.activeIndex === 4} />
                         </TouchableOpacity>
                     </View>
 

@@ -10,7 +10,7 @@ class ProfileScreen extends Component {
   render() {
     return (
         <View style={{flex: 1}}>
-            <Profile/>
+            <Profile navigation={this.props.navigation}/>
         </View>
     )
 }

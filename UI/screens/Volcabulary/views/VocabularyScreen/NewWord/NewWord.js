@@ -115,7 +115,7 @@ class NewWord extends Component {
                             <Answer url={require('../../../assets/images/strawberry-icon.png')} text='Strawberry' flag='1' isActive={this.state.activeIndex === 1} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_B}>
-                            <Answer url={require('../../../assets/images/apple.png')} text='Apple' flag='2' isActive={this.state.activeIndex === 2} />
+                            <Answer url={require('../../../assets/images/orange.png')} text='Orange' flag='2' isActive={this.state.activeIndex === 2} />
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -123,7 +123,7 @@ class NewWord extends Component {
                             <Answer url={require('../../../assets/images/banana.png')} text='Banana' flag='3' isActive={this.state.activeIndex === 3} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_D}>
-                            <Answer url={require('../../../assets/images/orange.png')} text='Orange' flag='4' isActive={this.state.activeIndex === 4} />
+                            <Answer url={require('../../../assets/images/apple.png')} text='Apple' flag='4' isActive={this.state.activeIndex === 4} />
                         </TouchableOpacity>
                     </View>
 

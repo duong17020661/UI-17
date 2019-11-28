@@ -5,12 +5,13 @@ import {
     Text,
     Dimensions,
     TouchableOpacity,
+    Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 var widthScreen = Dimensions.get('window').width;
 class BodyProfile extends Component {
     render() {
-        const { icon, titletext, bodytext } = this.props;
+        const { url, titletext, bodytext, navigation, nameScreen } = this.props;
         return (
             <TouchableOpacity
                 style={{
@@ -19,10 +20,13 @@ class BodyProfile extends Component {
                     marginRight: 0.05 * widthScreen,
                     flex: 1,
                 }}
-                // onPress={{}}
+                onPress={() => navigation.navigate(nameScreen)}
             >
                 <View style={{ flex: 1 }}>
-                    <Icon name={icon} size={36} color="#bf1313" />
+                    <Image
+                        style={{ height: 30, width: 30 }}
+                        source={url}
+                    />
                 </View>
                 <View style={{
                     flex: 5,

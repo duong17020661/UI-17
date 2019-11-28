@@ -16,36 +16,83 @@ class CheckButton extends Component {
     }
 
     functionOne = (numberScreen, checkItem) => {
-        (numberScreen === '1' && checkItem ===1) || (numberScreen === '2' && checkItem === 2)
-        ?
-        Alert.alert(
-            numberScreen,
-            'Đáp án chính xác',
-            [
-                { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord'), style: 'cancel' },
-                { text: 'OK', onPress: () => this.props.navigation.navigate('NewWord2') },
-            ],
-            { cancelable: false }
-        )
-        : 
-        Alert.alert(
-            numberScreen,
-            'Không chính xác',
-            [
-                { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
-                { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord2'), style: 'cancel' },
-                { text: 'OK', onPress: () => this.props.navigation.navigate('Point') },
-            ],
-            { cancelable: false }
-        )
+        // (numberScreen === '1' && checkItem === 1) || (numberScreen === '2' && checkItem === 2)
+        //     ?
+        //     Alert.alert(
+        //         numberScreen,
+        //         'Đáp án chính xác',
+        //         [
+        //             { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+        //             { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord'), style: 'cancel' },
+        //             { text: 'OK', onPress: () => this.props.navigation.navigate('NewWord2') },
+        //         ],
+        //         { cancelable: false }
+        //     )
+        //     :
+        //     Alert.alert(
+        //         numberScreen,
+        //         'Không chính xác',
+        //         [
+        //             { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
+        //             { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord2'), style: 'cancel' },
+        //             { text: 'OK', onPress: () => this.props.navigation.navigate('Point') },
+        //         ],
+        //         { cancelable: false }
+        //     )
+
+        if (numberScreen === '1') {
+            if (checkItem === 1) {
+                Alert.alert(
+                    numberScreen,
+                    'Đáp án chính xác',
+                    [
+                        { text: 'Tiếp tục', onPress: () => this.props.navigation.navigate('NewWord2') },
+                    ],
+                    { cancelable: false }
+                )
+            }
+            else {
+                Alert.alert(
+                    numberScreen,
+                    'Đáp án không chính xác',
+                    [
+                        { text: 'Chọn lại', onPress: () => this.props.navigation.navigate('NewWord'), style: 'cancel' },
+                        { text: 'Tiếp tục', onPress: () => this.props.navigation.navigate('NewWord2') },
+                    ],
+                    { cancelable: false }
+                )
+            }
+        }
+        else {
+            if (checkItem === 2) {
+                Alert.alert(
+                    numberScreen,
+                    'Đáp án chính xác',
+                    [
+                        { text: 'Tiếp tục', onPress: () => this.props.navigation.navigate('Point') },
+                    ],
+                    { cancelable: false }
+                )
+            }
+            else {
+                Alert.alert(
+                    numberScreen,
+                    'Đáp án không chính xác',
+                    [
+                        { text: 'Chọn lại', onPress: () => this.props.navigation.navigate('NewWord2'), style: 'cancel' },
+                        { text: 'Tiếp tục', onPress: () => this.props.navigation.navigate('Point') },
+                    ],
+                    { cancelable: false }
+                )
+            }
+        }
     }
-    functionTwo = () =>{
+    functionTwo = () => {
 
     }
     render() {
-        const {check, checkItem, numberScreen} = this.props;
-        
+        const { check, checkItem, numberScreen } = this.props;
+
         return (
             <View>
                 <TouchableOpacity

@@ -5,6 +5,7 @@ import {
     Text,
     Dimensions,
     ScrollView,
+    Button,
 } from 'react-native';
 import HeaderProfile from '../../components/Profile/HeaderProfile';
 import BodyProfile from '../../components/Profile/BodyProfile';
@@ -25,25 +26,26 @@ class Profile extends Component {
                     <View style={{ height: 3, width: 0.9 * widthScreen, backgroundColor: '#f2f2f2' }}>
 
                     </View>
+                  
                 </View>
                 <ScrollView style={{ height: 2 * heightScreen / 3 }}>
                     <View style={{ height: heightScreen / 5, flexDirection: 'row', alignItems: 'center' }}>
-                        <BodyProfile icon="at" titletext="Tên đăng nhập" bodytext='nguyendinh1802' />
+                        <BodyProfile titletext="Tên đăng nhập" bodytext='nguyendinh1802' url={require('../../assets/images/tendangnhap.jpg')} navigation={this.props.navigation} nameScreen='Main'/>
                     </View>
                     <View style={{ height: heightScreen / 5, flexDirection: 'row', alignItems: 'center' }}>
-                        <BodyProfile icon="envelope-open" titletext="Email" bodytext='nguyendinh1802@gmail.com' />
+                        <BodyProfile  titletext="Email" bodytext='nguyendinh1802@gmail.com' url={require('../../assets/images/email.png')} navigation={this.props.navigation} nameScreen='Main'/>
                     </View>
                     <View style={{ height: heightScreen / 5, flexDirection: 'row', alignItems: 'center' }}>
-                        <BodyProfile icon="unlock" titletext="Mật khẩu" bodytext='' />
+                        <BodyProfile  titletext="Mật khẩu" bodytext='' url={require('../../assets/images/password.png')} navigation={this.props.navigation} nameScreen='Main'/>
                     </View>
                     <View style={{ height: heightScreen / 5, flexDirection: 'row', alignItems: 'center' }}>
-                        <BodyProfile icon="share-square" titletext="Chia sẻ khóa học" bodytext='nguyendinh1802' />
+                        <BodyProfile  titletext="Chia sẻ khóa học" bodytext='nguyendinh1802' url={require('../../assets/images/share.png')} navigation={this.props.navigation} nameScreen='Main'/>
                     </View>
                     <View style={{ height: heightScreen / 5, flexDirection: 'row', alignItems: 'center' }}>
-                        <BodyProfile icon="table" titletext="Bảng xếp hạng" bodytext='Giải đấu Kim Cương' />
+                        <BodyProfile  titletext="Bảng xếp hạng" bodytext='Giải đấu Kim Cương' url={require('../../assets/images/chart.jpg')} navigation={this.props.navigation} nameScreen='Charts'/>
                     </View>
                     <View style={{ height: heightScreen / 5, flexDirection: 'row', alignItems: 'center' }}>
-                        <BodyProfile icon="sign-out" titletext="Đăng xuất" bodytext='' />
+                        <BodyProfile  titletext="Đăng xuất" bodytext='' url={require('../../assets/images/logout.png')} navigation={this.props.navigation} nameScreen='Login'/>
                     </View>
                 </ScrollView>
             </View>
