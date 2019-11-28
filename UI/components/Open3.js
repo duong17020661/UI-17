@@ -76,7 +76,10 @@ export default class Open3 extends Component {
             </View>
         </View>
         <View style={styles.button}>
-          <TouchableOpacity style={styles.loginButton}>
+          <TouchableOpacity 
+            style={styles.loginButton}
+            // onPress={this.props.navigation.navigate('Main')}
+          >
             <Text style={styles.tittleButton}> TIẾP TỤC </Text>
           </TouchableOpacity>
         </View>{/* body */}
@@ -161,10 +164,10 @@ const styles = StyleSheet.create({
     marginTop:30,
     width:300,
     height:45,
-    borderRadius:6,
+    borderRadius:10,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor: 'yellow',
+    backgroundColor: 'gray',
   },
   tittleButton: {
     color:'white',

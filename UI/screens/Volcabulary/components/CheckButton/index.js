@@ -15,11 +15,12 @@ class CheckButton extends Component {
         super(props)
     }
 
-    functionOne = (numberScreen) => {
-        numberScreen === '1' ?
+    functionOne = (numberScreen, checkItem) => {
+        (numberScreen === '1' && checkItem ===1) || (numberScreen === '2' && checkItem === 2)
+        ?
         Alert.alert(
             numberScreen,
-            'My Alert Msg',
+            'Đáp án chính xác',
             [
                 { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
                 { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord'), style: 'cancel' },
@@ -30,7 +31,7 @@ class CheckButton extends Component {
         : 
         Alert.alert(
             numberScreen,
-            'My Alert Msg',
+            'Không chính xác',
             [
                 { text: 'Ask me later', onPress: () => console.log('Ask me later pressed') },
                 { text: 'Cancel', onPress: () => this.props.navigation.navigate('NewWord2'), style: 'cancel' },
@@ -44,7 +45,7 @@ class CheckButton extends Component {
     }
     render() {
         const {check, checkItem, numberScreen} = this.props;
-        let a = checkItem === 1 || checkItem === 4 ? 'success' : 'error'
+        
         return (
             <View>
                 <TouchableOpacity
@@ -52,7 +53,7 @@ class CheckButton extends Component {
                         styles.container,
                         check ? styles.changeBackgroundColorGray : styles.changeBackgroundColorGreen
                     ]}
-                    onPress={() => this.functionOne(numberScreen)}
+                    onPress={() => this.functionOne(numberScreen, checkItem)}
                 >
                     <Text style={styles.text}>KIỂM TRA</Text>
                 </TouchableOpacity>
