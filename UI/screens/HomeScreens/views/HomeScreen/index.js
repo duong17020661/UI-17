@@ -18,7 +18,7 @@ export default class HomeScreen extends Component {
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <Exercise text='Tính từ' uri={'https://imgur.com/tMzBSO7.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='App2'/>
-                        <Exercise text='Động từ' uri={'https://imgur.com/tFrM33U.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='App2'/>
+                        <Exercise text='Động từ' uri={'https://imgur.com/tFrM33U.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='PlayList'/>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <Exercise text='Số nhiều ' uri={'https://imgur.com/AtVaoWW.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='App2'/>

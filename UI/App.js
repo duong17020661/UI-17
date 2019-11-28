@@ -18,6 +18,9 @@ import StoreScreen from './screens/StoreScreen';
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
 import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
 import Point from './screens/Volcabulary/views/Point/index';
+import PlayList from './screens/Listening/index';
+import Player from './screens/Listening/player';
+// import Script from './screens/Listening/script';
 
 const HomeStack = createStackNavigator(
   {
@@ -163,6 +166,11 @@ const App = createSwitchNavigator({
   Main: tabNavigator,
   NewWord: { screen: NewWord },
   NewWord2: {screen: NewWord2},
+
+  PlayList: {screen: PlayList},
+  Player: {screen: Player},
+  // Script: {screen: Script},
+
   Point: {screen: Point},
   Open1: { screen: Open1 },
   Open2: { screen: Open2 },
