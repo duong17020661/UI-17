@@ -10,14 +10,15 @@ import Open1 from './components/Open1';
 import Open2 from './components/Open2';
 import Open3 from './components/Open3';
 import SignUp from './components/SignUp';
-import App2 from './screens/Volcabulary/App';
 import HomeScreen from './screens/HomeScreen';
 import ChartsScreen from './screens/ChartsScreen';
 import ProflieScreen from './screens/ProfileScreen';
 import StoreScreen from './screens/StoreScreen';
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
 import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
+import Sentence from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence';
 import Point from './screens/Volcabulary/views/Point/index';
+
 import PlayList from './screens/Listening/index';
 import Player from './screens/Listening/player';
 // import Script from './screens/Listening/script';
@@ -166,7 +167,7 @@ const App = createSwitchNavigator({
   Main: tabNavigator,
   NewWord: { screen: NewWord },
   NewWord2: {screen: NewWord2},
-
+  Sentence: {screen: Sentence},
   PlayList: {screen: PlayList},
   Player: {screen: Player},
   // Script: {screen: Script},
@@ -176,7 +177,6 @@ const App = createSwitchNavigator({
   Open2: { screen: Open2 },
   Open3: { screen: Open3 },
   SignUp: { screen: SignUp },
-  App2: { screen: App2 },
 },
 );
 export default createAppContainer(App);
