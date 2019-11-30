@@ -22,10 +22,22 @@ var widthScreen = 0.9 * Dimensions.get('window').width;
 class Sentence extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            list: [1, 2, 3],
-        };
 
+        this.state = {
+            list1: [],
+            list2: ['a', 'b', 'c'],
+        };
+        this.pushItemInList = this.pushItemInList.bind(this);
+
+    }
+
+    pushItemInList(data, index) {
+        var a = this.state.list1;
+        a[index] = data;
+        this.setState({ list1: a });
+        console.log(a);
+        console.log(a.length);
+        
     }
 
     render() {
@@ -76,25 +88,25 @@ class Sentence extends Component {
                 }}>
                     <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'pink' }}>
                         <View>
-                            {this.state.list.map((item, key) => (
+                            {this.state.list1.map((item, key) => (
                                 // <Text style={styles.TextStyle}> {item} </Text>
-                                <ItemSentence text={item}/>
+                                <ItemSentence text={item} />
                             )
                             )}
-                            <Button
-                                title='click'
-
-                            />
+                           
                         </View>
 
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'red' }}>
                         <View>
-                            <ItemSentence text='Item1' size={4} id={1} />
+                            {this.state.list2.map((item, key) => (
+                                // <Text style={styles.TextStyle}> {item} </Text>
+                                <ItemSentence text={item} action={() => this.pushItemInList(item, key)}/>
+                            )
+                            )}
+                         
                         </View>
-                        <View>
-                            <ItemSentence text='Item2' size={5} id={2} />
-                        </View>
+                        
                     </View>
                 </View>
 

@@ -9,11 +9,11 @@ import {
 
 class ItemSentence extends Component {
     render() {
-        const { text, size, id } = this.props;
+        const { text, size, id, action } = this.props;
         return (
             <TouchableOpacity
                 style={{}}
-                // onPress={}
+                onPress={action}
             >
                 <Text>{text}</Text>
             </TouchableOpacity>
