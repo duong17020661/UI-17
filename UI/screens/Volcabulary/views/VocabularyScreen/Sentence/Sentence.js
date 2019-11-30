@@ -10,10 +10,9 @@ import {
 
 import ProgressBar from '../../../components/ProgressBar';
 import Question from '../../../components/Question';
-import CheckButton from '../../../components/CheckButton/index';
-
 import IconClose from '../../../components/Icons/IconClose';
 import ItemSentence from '../../../components/ItemSentence';
+import CheckSentence from '../../../components/CheckButton/checkSentence';
 
 
 
@@ -25,19 +24,23 @@ class Sentence extends Component {
 
         this.state = {
             list1: [],
-            list2: ['a', 'b', 'c'],
+            list2: [ 'a', 'teacher', 'He', 'is',],
+            count: 0,
         };
         this.pushItemInList = this.pushItemInList.bind(this);
 
     }
 
-    pushItemInList(data, index) {
+    pushItemInList(data) {
         var a = this.state.list1;
-        a[index] = data;
+
+        this.setState({
+            count: this.state.count + 1,
+        })
+
+        a[this.state.count] = data;
         this.setState({ list1: a });
-        console.log(a);
-        console.log(a.length);
-        
+
     }
 
     render() {
@@ -87,32 +90,28 @@ class Sentence extends Component {
                     marginRight: 0.05 * widthScreen,
                 }}>
                     <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'pink' }}>
-                        <View>
-                            {this.state.list1.map((item, key) => (
-                                // <Text style={styles.TextStyle}> {item} </Text>
-                                <ItemSentence text={item} />
-                            )
-                            )}
-                           
-                        </View>
+                        {this.state.list1.map((item, key) => (
+                            // <Text style={styles.TextStyle}> {item} </Text>
+                            <ItemSentence text={item} />
+                        )
+                        )}
 
                     </View>
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'red' }}>
-                        <View>
-                            {this.state.list2.map((item, key) => (
-                                // <Text style={styles.TextStyle}> {item} </Text>
-                                <ItemSentence text={item} action={() => this.pushItemInList(item, key)}/>
-                            )
-                            )}
-                         
-                        </View>
-                        
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+
+                        {this.state.list2.map((item, key) => (
+                            // <Text style={styles.TextStyle}> {item} </Text>
+                            <View style={{flex: 1, alignItems: 'center'}}>
+                                <ItemSentence text={item} action={() => this.pushItemInList(item)} />
+                            </View>
+
+                        )
+                        )}
                     </View>
                 </View>
 
                 <View style={{ flex: 1 }}>
-                    <CheckButton />
-                    {/* <CheckButton navigation={this.props.navigation}/> */}
+                   <CheckSentence checkFocus={this.state.count === 0} checkAnser={JSON.stringify(this.state.list1) === JSON.stringify(this.state.list2)} navigation={this.props.navigation}/>
                 </View>
 
             </View>

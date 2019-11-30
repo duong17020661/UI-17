@@ -11,17 +11,32 @@ class ItemSentence extends Component {
     render() {
         const { text, size, id, action } = this.props;
         return (
-            <TouchableOpacity
-                style={{}}
-                onPress={action}
-            >
-                <Text>{text}</Text>
-            </TouchableOpacity>
+            <View>
+                <TouchableOpacity
+                    style={styles.container}
+                    onPress={action}
+                >
+                    <Text style={styles.text}>{text}</Text>
+                </TouchableOpacity>
+            </View>
+
         );
     }
 }
 
 const styles = StyleSheet.create({
-
+    container: {
+        borderRadius: 10,
+        backgroundColor: 'red',
+      
+        height: 50,
+       
+        flexDirection: 'column',
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'bold',
+       justifyContent: 'center'
+    }
 })
 export default ItemSentence;
