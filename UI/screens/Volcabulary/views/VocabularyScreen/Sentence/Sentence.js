@@ -23,7 +23,7 @@ class Sentence extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            list: [1, 2, 3],
         };
 
     }
@@ -76,15 +76,19 @@ class Sentence extends Component {
                 }}>
                     <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'pink' }}>
                         <View>
-                            <Text>item1</Text>
+                            {this.state.list.map((item, key) => (
+                                // <Text style={styles.TextStyle}> {item} </Text>
+                                <ItemSentence text={item}/>
+                            )
+                            )}
+                            <Button
+                                title='click'
+
+                            />
                         </View>
-                        <View>
-                            <Text>
-                                item2
-                            </Text>
-                        </View>
+
                     </View>
-                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around' , backgroundColor: 'red' }}>
+                    <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', backgroundColor: 'red' }}>
                         <View>
                             <ItemSentence text='Item1' size={4} id={1} />
                         </View>
