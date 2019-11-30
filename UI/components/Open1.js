@@ -10,24 +10,13 @@ import React, { Component } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
   Image,
-  TextInput,
   TouchableOpacity
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 export default class Open1 extends Component {
   render() {
     return (
@@ -38,7 +27,7 @@ export default class Open1 extends Component {
         <View style={styles.line}></View>
 
         <View style={styles.body}>
-          <TouchableOpacity style={styles.content} onPress={() => this.props.navigation.navigate('Open3')}>
+          <TouchableOpacity style={styles.content} onPress={() => this.props.navigation.navigate('Open2')}>
             <View style={styles.top}>
               <Image style={styles.logo} source={require('../images/logo.png')}></Image>
             </View>

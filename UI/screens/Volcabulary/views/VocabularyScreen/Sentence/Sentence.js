@@ -89,7 +89,7 @@ class Sentence extends Component {
                     marginLeft: 0.05 * widthScreen,
                     marginRight: 0.05 * widthScreen,
                 }}>
-                    <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'pink' }}>
+                    <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'white',borderWidth: 2, borderColor: 'black',borderRadius: 10 }}>
                         {this.state.list1.map((item, key) => (
                             // <Text style={styles.TextStyle}> {item} </Text>
                             <ItemSentence text={item} />

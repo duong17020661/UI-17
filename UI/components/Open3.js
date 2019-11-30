@@ -11,26 +11,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import openList from '../data/openList';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
-  Image,
-  TextInput,
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 class OpenListItem extends React.Component {
     render() {
       return(
@@ -53,13 +39,13 @@ export default class Open3 extends Component {
         <View style={styles.header}>
           <Text style={styles.title}>Chọn một hướng đi</Text>
         </View>{/* header */}
-          <View style={styles.line}></View>
+        <View style={styles.line}></View>
         <View style={styles.body}>
           <View style={styles.list}>
            <FlatList
              data={openList}
              renderItem={({item, index}) =>{
-               return (<OpenListItem item={item} index={index}></OpenListItem>)
+               return (<TouchableOpacity style={styles.loginButton} onPress={this.props.navigation.navigate('Main')}><OpenListItem item={item} index={index}></OpenListItem></TouchableOpacity>)
              }}
            />
           </View>
@@ -75,14 +61,11 @@ export default class Open3 extends Component {
             }}>Bạn có thể thay đổi mục tiêu sau</Text>
             </View>
         </View>
+        <TouchableOpacity style={styles.loginButton} onPress={this.props.navigation.navigate('Main')}>
         <View style={styles.button}>
-          <TouchableOpacity 
-            style={styles.loginButton}
-            // onPress={this.props.navigation.navigate('Main')}
-          >
             <Text style={styles.tittleButton}> TIẾP TỤC </Text>
-          </TouchableOpacity>
         </View>{/* body */}
+        </TouchableOpacity>
       </View>
   );
 };

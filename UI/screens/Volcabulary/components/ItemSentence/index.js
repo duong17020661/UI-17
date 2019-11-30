@@ -27,11 +27,14 @@ class ItemSentence extends Component {
 const styles = StyleSheet.create({
     container: {
         borderRadius: 10,
-        backgroundColor: 'red',
-      
+        backgroundColor: 'white',
+        paddingHorizontal: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
         height: 50,
-       
         flexDirection: 'column',
+        borderWidth: 1,
+        borderColor: 'black',
     },
     text: {
         fontSize: 20,

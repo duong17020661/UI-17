@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
+  TouchableOpacity,
   Keyboard,
   Alert,
 } from 'react-native'
@@ -84,10 +85,12 @@ export default class SignUp extends React.Component {
             underlineColorAndroid={'transparent'}
             onChangeText={(text) => { this.setState({ Email: text }) }}
           />
-          <Button
-            title='Sign Up'
+          <TouchableOpacity
+            style={styles.button}
             onPress={this.Simple_If_Else.bind(this)}
-          />
+          >
+            <Text style={styles.tittleButton}> Đăng ký </Text>
+          </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
     )
@@ -96,9 +99,10 @@ export default class SignUp extends React.Component {
 
 const styles = StyleSheet.create({
   input: {
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     height: 50,
     marginBottom: 40,
+    width: 300,
     color: 'blue',
     borderBottomColor: 'red',
     borderBottomWidth: 1,
@@ -107,16 +111,29 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'stretch',
+    alignItems: 'center',
     paddingHorizontal: 10,
   },
   header: {
-    fontSize: 24,
+    fontSize: 34,
     color: "blue",
     paddingBottom: 10,
     marginBottom: 40,
     borderBottomColor: 'red',
     borderBottomWidth: 1,
-
+    fontWeight: 'bold'
+  },
+  button: {
+    width: 300,
+    height: 45,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#e60000',
+  },
+  tittleButton: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 })

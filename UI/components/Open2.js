@@ -9,38 +9,24 @@
 import React, {Component} from 'react';
 import flatList from '../data/flatList';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
   Image,
-  TextInput,
   FlatList,
+  TouchableOpacity
 } from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 
 class FlatListItem extends React.Component {
     render() {
       return(
         <View style={{
           flex:1,
-
         }}>
           <View style={styles.items}>
             <Image style={styles.logo} source={{uri: this.props.item.img}}></Image>
             <Text style={styles.text}
-            onPress={() => this.props.navigation.navigate('Open3')}
             >{this.props.item.key}</Text>
-
           </View>
         </View>
       );
@@ -61,7 +47,7 @@ export default class Open2 extends Component {
          <FlatList
            data={flatList}
            renderItem={({item, index}) =>{
-             return (<FlatListItem item={item} index={index} ></FlatListItem>)
+             return (<TouchableOpacity style={styles.content} onPress={() => this.props.navigation.navigate('Open3')}><FlatListItem item={item} index={index} ></FlatListItem></TouchableOpacity>)
            }}
          />
         </View>
