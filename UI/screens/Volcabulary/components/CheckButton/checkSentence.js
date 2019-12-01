@@ -13,6 +13,7 @@ var widthScreen = 0.9 * Dimensions.get('window').width;
 class CheckSentence extends Component {
     constructor(props) {
         super(props)
+        this.functionTwo = this.functionTwo.bind(this);
     }
 
     // functionOne = (checkAnser) => {
@@ -28,7 +29,7 @@ class CheckSentence extends Component {
     //     }
     //     else {
     //         Alert.alert(
-             
+
     //             'Đáp án không chính xác',
     //             [
     //                 { text: 'Chọn lại', onPress: () => this.props.navigation.navigate('Sentence'), style: 'cancel' },
@@ -38,19 +39,32 @@ class CheckSentence extends Component {
     //         )
     //     }
     // }
-    functionTwo = (checkAnser) =>{
-        if(checkAnser == true){
-            console.log(checkAnser);
+    functionTwo = (stringArray, screen) => {
+        console.log(stringArray);
+        if(screen === 1 ){
             
         }
-        else{
-            console.log(checkAnser);
-            
-        }
+        // if (checkAnser == true) {
+        //     Alert.alert(
+
+        //         'Đáp án chính xác',
+               
+               
+        //     )
+        // }
+        // else {
+        //     Alert.alert(
+
+        //         'Đáp án không chính xác',
+               
+               
+        //     )
+
+        // }
     }
     render() {
-        const { checkFocus, checkAnser } = this.props;
-
+        const { checkFocus, stringArray, screen} = this.props;
+        
         return (
             <View>
                 <TouchableOpacity
@@ -58,7 +72,7 @@ class CheckSentence extends Component {
                         styles.container,
                         checkFocus ? styles.changeBackgroundColorGray : styles.changeBackgroundColorGreen
                     ]}
-                    onPress={() => this.functionTwo(checkAnser)}
+                    onPress={() => this.functionTwo(stringArray, screen)}
                 >
                     <Text style={styles.text}>KIỂM TRA</Text>
                 </TouchableOpacity>

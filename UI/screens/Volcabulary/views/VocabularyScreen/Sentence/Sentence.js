@@ -21,27 +21,34 @@ var widthScreen = 0.9 * Dimensions.get('window').width;
 class Sentence extends Component {
     constructor(props) {
         super(props);
-
+       
         this.state = {
             list1: [],
             list2: [ 'a', 'teacher', 'He', 'is',],
-            count: 0,
+            count1: 0,
+            count2: 4,
         };
-        this.pushItemInList = this.pushItemInList.bind(this);
+        this.pushOrDeleteItemInList = this.pushOrDeleteItemInList.bind(this);
 
     }
 
-    pushItemInList(data) {
+    pushOrDeleteItemInList(data, key) {
         var a = this.state.list1;
-
+        var b = this.state.list2;
+        //push
         this.setState({
-            count: this.state.count + 1,
+            count1: this.state.count1 + 1,
+            count2: this.state.count2 -1,
         })
 
-        a[this.state.count] = data;
+        a[this.state.count1] = data;
         this.setState({ list1: a });
-
+        //delete
+        b.splice(key, 1);
+        this.setState({list2: b});
+        
     }
+  
 
     render() {
 
@@ -102,7 +109,7 @@ class Sentence extends Component {
                         {this.state.list2.map((item, key) => (
                             // <Text style={styles.TextStyle}> {item} </Text>
                             <View style={{flex: 1, alignItems: 'center'}}>
-                                <ItemSentence text={item} action={() => this.pushItemInList(item)} />
+                                <ItemSentence text={item} action={() => this.pushOrDeleteItemInList(item, key)} />
                             </View>
 
                         )
@@ -111,7 +118,7 @@ class Sentence extends Component {
                 </View>
 
                 <View style={{ flex: 1 }}>
-                   <CheckSentence checkFocus={this.state.count === 0} checkAnser={JSON.stringify(this.state.list1) === JSON.stringify(this.state.list2)} navigation={this.props.navigation}/>
+                   <CheckSentence checkFocus={this.state.count1 === 0} stringArray={JSON.stringify(this.state.list1)} navigation={this.props.navigation} screen={1}/>
                 </View>
 
             </View>
