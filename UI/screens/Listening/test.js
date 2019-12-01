@@ -20,7 +20,6 @@ var widthScreen = 0.9 * Dimensions.get('window').width;
 class Listening extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       list1: [],
       list2: [
@@ -35,20 +34,57 @@ class Listening extends Component {
         'I',
         'am',
       ],
-      count: 0,
+      count1: 0,
+      count2: 0,
     };
-    this.pushItemInList = this.pushItemInList.bind(this);
+
+    this.pushList1AndDeleteItemInList2 = this.pushList1AndDeleteItemInList2.bind(
+      this,
+    );
+    this.pushList2AndDeleteItemInList1 = this.pushList2AndDeleteItemInList1.bind(
+      this,
+    );
   }
 
-  pushItemInList(data) {
-    var a = this.state.list1;
-
+  pushList1AndDeleteItemInList2(data, key) {
     this.setState({
-      count: this.state.count + 1,
+      count1: this.state.list1.length,
+      count2: this.state.list2.length,
     });
 
-    a[this.state.count] = data;
+    var a = this.state.list1;
+    var b = this.state.list2;
+
+    a[this.state.count1] = data;
     this.setState({list1: a});
+
+    //delete
+    b.splice(key, 1);
+    this.setState({list2: b});
+
+    //push
+    this.setState({
+      count1: this.state.count1 + 1,
+      count2: this.state.count2 - 1,
+    });
+  }
+
+  pushList2AndDeleteItemInList1(data, key) {
+    var a = this.state.list2;
+    var b = this.state.list1;
+
+    //delete
+    b.splice(key, 1);
+    this.setState({list1: b});
+
+    //push
+    a[this.state.count2] = data;
+    this.setState({list2: a});
+
+    this.setState({
+      count2: this.state.count2 + 1,
+      count1: this.state.count1 - 1,
+    });
   }
 
   render() {
@@ -140,24 +176,24 @@ class Listening extends Component {
                 flexWrap: 'wrap',
               }}>
               {this.state.list1.map((item, key) => (
-                // <Text style={styles.TextStyle}> {item} </Text>
-                <ItemSentence text={item} />
+                <ItemSentence
+                  text={item}
+                  action={() => this.pushList2AndDeleteItemInList1(item, key)}
+                />
               ))}
             </View>
             <View
               style={{
                 flex: 1,
                 flexDirection: 'row',
-                justifyContent: 'space-between',
                 flexWrap: 'wrap',
                 marginTop: 10,
               }}>
               {this.state.list2.map((item, key) => (
                 // <Text style={styles.TextStyle}> {item} </Text>
                 <ItemSentence
-
                   text={item}
-                  action={() => this.pushItemInList(item)}
+                  action={() => this.pushList1AndDeleteItemInList2(item, key)}
                 />
               ))}
             </View>
