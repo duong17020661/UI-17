@@ -21,6 +21,7 @@ import Point from './screens/Volcabulary/views/Point/index';
 
 import PlayList from './screens/Listening/index';
 import Player from './screens/Listening/player';
+import Listening from './screens/Listening/test'
 // import Script from './screens/Listening/script';
 
 const HomeStack = createStackNavigator(
@@ -169,7 +170,7 @@ const App = createSwitchNavigator({
   NewWord2: {screen: NewWord2},
   Sentence: {screen: Sentence},
   PlayList: {screen: PlayList},
-  Player: {screen: Player},
+  Listen: {screen: Listening},
   // Script: {screen: Script},
 
   Point: {screen: Point},
