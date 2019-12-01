@@ -6,6 +6,7 @@ import {
     Text,
     TouchableOpacity,
     Button,
+    Image,
 } from 'react-native';
 
 import ProgressBar from '../../../components/ProgressBar';
@@ -14,21 +15,25 @@ import IconClose from '../../../components/Icons/IconClose';
 import ItemSentence from '../../../components/ItemSentence';
 import CheckSentence from '../../../components/CheckButton/checkSentence';
 
-
+import { StackActions, NavigationActions } from 'react-navigation';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
 
 class Sentence extends Component {
     constructor(props) {
         super(props);
-       
+        this.props ={
+            list11: [],
+            list22: ['a', 'teacher', 'He', 'is',],
+        }
         this.state = {
             list1: [],
-            list2: [ 'a', 'teacher', 'He', 'is',],
+            list2: ['a', 'teacher', 'He', 'is',],
             count1: 0,
             count2: 4,
         };
         this.pushOrDeleteItemInList = this.pushOrDeleteItemInList.bind(this);
+        this.resetComponent = this.resetComponent.bind(this);
 
     }
 
@@ -38,17 +43,22 @@ class Sentence extends Component {
         //push
         this.setState({
             count1: this.state.count1 + 1,
-            count2: this.state.count2 -1,
+            count2: this.state.count2 - 1,
         })
 
         a[this.state.count1] = data;
         this.setState({ list1: a });
         //delete
         b.splice(key, 1);
-        this.setState({list2: b});
-        
+        this.setState({ list2: b });
+
     }
-  
+
+    resetComponent() {
+        this.setState({list1: []});
+        this.setState({list2: ['a', 'teacher', 'He', 'is',]})
+    }
+
 
     render() {
 
@@ -91,12 +101,27 @@ class Sentence extends Component {
                 </View>
 
                 <View style={{
-                    flex: 6,
+                    flex: 0.5,
+                    flexDirection: 'row-reverse',
+                    marginLeft: 0.05 * widthScreen,
+                    marginRight: 0.05 * widthScreen,
+                }}>
+                    <TouchableOpacity onPress={() => this.resetComponent()}>
+                        <Image
+                            style={{ height: 30, width: 30 }}
+                            source={{ uri: 'https://imgur.com/YmEWh2n.png' }}
+
+                        />
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{
+                    flex: 5.5,
                     flexDirection: 'column',
                     marginLeft: 0.05 * widthScreen,
                     marginRight: 0.05 * widthScreen,
                 }}>
-                    <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'white',borderWidth: 2, borderColor: 'black',borderRadius: 10 }}>
+                    <View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'white', borderWidth: 2, borderColor: 'black', borderRadius: 10 }}>
                         {this.state.list1.map((item, key) => (
                             // <Text style={styles.TextStyle}> {item} </Text>
                             <ItemSentence text={item} />
@@ -108,7 +133,7 @@ class Sentence extends Component {
 
                         {this.state.list2.map((item, key) => (
                             // <Text style={styles.TextStyle}> {item} </Text>
-                            <View style={{flex: 1, alignItems: 'center'}}>
+                            <View style={{ flex: 1, alignItems: 'center' }}>
                                 <ItemSentence text={item} action={() => this.pushOrDeleteItemInList(item, key)} />
                             </View>
 
@@ -118,7 +143,7 @@ class Sentence extends Component {
                 </View>
 
                 <View style={{ flex: 1 }}>
-                   <CheckSentence checkFocus={this.state.count1 === 0} stringArray={JSON.stringify(this.state.list1)} navigation={this.props.navigation} screen={1}/>
+                    <CheckSentence checkFocus={this.state.count1 === 0} stringArray={JSON.stringify(this.state.list1)} navigation={this.props.navigation} screen={1} />
                 </View>
 
             </View>
