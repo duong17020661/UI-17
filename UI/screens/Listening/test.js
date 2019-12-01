@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
@@ -40,15 +40,38 @@ class Listening extends Component {
     this.pushItemInList = this.pushItemInList.bind(this);
   }
 
-  pushItemInList(data) {
+  pushItemInList(data, key) {
     var a = this.state.list1;
+    var b = this.state.list2;
 
     this.setState({
       count: this.state.count + 1,
     });
 
     a[this.state.count] = data;
-    this.setState({list1: a});
+    this.setState({ list1: a });
+
+    //delete
+    b.splice(key, 1);
+    this.setState({ list2: b });
+  }
+
+  resetComponent() {
+    this.setState({ list1: [] });
+    this.setState({
+      list2: [
+        'a',
+        'teacher',
+        'I',
+        'am',
+        'man',
+        'girl',
+        'a',
+        'teacher',
+        'I',
+        'am',
+      ]
+    })
   }
 
   render() {
@@ -91,7 +114,7 @@ class Listening extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-          <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
             Nghe và điền vào chỗ trống
           </Text>
         </View>
@@ -103,7 +126,7 @@ class Listening extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-          <View style={{flex: 1.8, flexDirection: 'row'}}>
+          <View style={{ flex: 1.8, flexDirection: 'row' }}>
             <View
               style={{
                 flex: 1,
@@ -113,12 +136,12 @@ class Listening extends Component {
                 marginRight: 0.1 * widthScreen,
               }}>
               <IconSound
-                styles={{width: 150, height: 150, borderRadius: 80}}
+                styles={{ width: 150, height: 150, borderRadius: 80 }}
                 img={require('../Listening/resources/sound.jpg')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
               <IconSound
-                styles={{width: 80, height: 80, borderRadius: 80, bottom: -60}}
+                styles={{ width: 80, height: 80, borderRadius: 80, bottom: -60 }}
                 img={require('../Listening/resources/slow.png')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
@@ -157,14 +180,14 @@ class Listening extends Component {
                 <ItemSentence
 
                   text={item}
-                  action={() => this.pushItemInList(item)}
+                  action={() => this.pushItemInList(item, key)}
                 />
               ))}
             </View>
           </View>
         </View>
 
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <CheckButton />
           {/* <CheckButton navigation={this.props.navigation}/> */}
         </View>
