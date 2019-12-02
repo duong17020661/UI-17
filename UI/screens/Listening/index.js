@@ -1,27 +1,28 @@
 import React, {Component} from 'react';
-import {ScrollView, Button} from 'react-native';
+import {ScrollView, View, TouchableOpacity, Text} from 'react-native';
+import IconClose from '../Volcabulary/components/Icons/IconClose';
 import Audio from './audio';
 
 const audio = [
   {
     title: 'dailylife001',
-    url: require('./music/dailylife001.mp3') 
+    url: require('./music/dailylife001.mp3'),
   },
   {
     title: 'dailylife002',
-    url: require('./music/dailylife002.mp3') 
+    url: require('./music/dailylife002.mp3'),
   },
   {
-    title: "dailylife003",
-    url: require('./music/dailylife003.mp3') 
+    title: 'dailylife003',
+    url: require('./music/dailylife003.mp3'),
   },
   {
     title: 'dailylife004',
-    url: require('./music/dailylife004.mp3') 
+    url: require('./music/dailylife004.mp3'),
   },
   {
     title: 'dailylife005',
-    url: require('./music/dailylife005.mp3') 
+    url: require('./music/dailylife005.mp3'),
   },
   {
     title: 'dailylife006',
@@ -45,30 +46,58 @@ const audio = [
   },
 ];
 
-
 export default class PlayList extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Audio Luyện Nghe',
-      headerRight: () => (
-        <Button
-          onPress={()=> navigation.navigate('Script')}
-          title="SCRIPT"
-          color="red"
-        />
-      ),
-    };
-  };
   render() {
     return (
       <ScrollView>
+        <View style={{height: 50, flexDirection: 'row'}}>
+          <View
+            style={{
+              flex: 4,
+              backgroundColor: 'blue',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View style={{flex: 1}}>
+              <IconClose navigation={this.props.navigation} />
+            </View>
+            <Text
+              style={{
+                flex: 4,
+                fontSize: 28,
+                fontWeight: 'bold',
+                color: 'white',
+              }}>
+              Listening
+            </Text>
+          </View>
+          <View style={{flex: 1}}>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                backgroundColor: 'red',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              onPress={() => this.props.navigation.navigate('Scripts')}
+              >
+              <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
+                Script
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
         {audio.map(testInfo => {
           return (
             <Audio
               title={testInfo.title}
               key={testInfo.title}
               handle={() => {
-              this.props.navigation.navigate('Player', {id: testInfo.title, filepath: testInfo.url});
+                this.props.navigation.navigate('Player', {
+                  id: testInfo.title,
+                  filepath: testInfo.url,
+                });
               }}
             />
           );

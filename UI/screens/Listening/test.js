@@ -3,16 +3,14 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  Text,
-  TouchableOpacity,
-  Button,
+  Text
 } from 'react-native';
 
 import ProgressBar from '../Volcabulary/components/ProgressBar';
-import CheckButton from '../Volcabulary/components/CheckButton/index';
+import CheckButton from './components/checkButton'
 
 import IconClose from '../Volcabulary/components/Icons/IconClose';
-import ItemSentence from '../Volcabulary/components/ItemSentence';
+import ButtonWord from './components/buttonWord';
 import IconSound from './components/iconSound';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
@@ -22,68 +20,38 @@ class Listening extends Component {
     super(props);
     this.state = {
       list1: [],
-      list2: [
-        'a',
-        'teacher',
-        'I',
-        'am',
-        'man',
-        'girl',
-        'a',
-        'teacher',
-        'I',
-        'am',
-      ],
-      count1: 0,
-      count2: 0,
+      list2: ['a', 'teacher', 'I', 'am', 'man', 'girl', 'a', 'I'],
+      sentence: "I am a man",
+      answer:""
     };
-
-    this.pushList1AndDeleteItemInList2 = this.pushList1AndDeleteItemInList2.bind(
-      this,
-    );
-    this.pushList2AndDeleteItemInList1 = this.pushList2AndDeleteItemInList1.bind(
-      this,
-    );
   }
 
   pushList1AndDeleteItemInList2(data, key) {
-    this.setState({
-      count1: this.state.list1.length,
-      count2: this.state.list2.length,
-    });
-
     var a = this.state.list1;
     var b = this.state.list2;
 
-    a[this.state.count1] = data;
-    this.setState({list1: a});
-
-    //delete
+    a.push(data);
     b.splice(key, 1);
-    this.setState({list2: b});
 
-    //push
     this.setState({
-      count1: this.state.count1 + 1,
-      count2: this.state.count2 - 1,
+      list1: a,
+      list2: b,
     });
   }
 
   pushList2AndDeleteItemInList1(data, key) {
-    var a = this.state.list2;
-    var b = this.state.list1;
-
-    //delete
-    b.splice(key, 1);
-    this.setState({list1: b});
+    var a = this.state.list1;
+    var b = this.state.list2;
 
     //push
-    a[this.state.count2] = data;
-    this.setState({list2: a});
+    b.push(data);
+
+    //delete
+    a.splice(key, 1);
 
     this.setState({
-      count2: this.state.count2 + 1,
-      count1: this.state.count1 - 1,
+      list1: a,
+      list2: b,
     });
   }
 
@@ -128,7 +96,7 @@ class Listening extends Component {
             marginRight: 0.05 * widthScreen,
           }}>
           <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-            Nghe và điền vào chỗ trống
+            Nghe và hoàn thành câu
           </Text>
         </View>
 
@@ -176,7 +144,7 @@ class Listening extends Component {
                 flexWrap: 'wrap',
               }}>
               {this.state.list1.map((item, key) => (
-                <ItemSentence
+                <ButtonWord
                   text={item}
                   action={() => this.pushList2AndDeleteItemInList1(item, key)}
                 />
@@ -184,14 +152,14 @@ class Listening extends Component {
             </View>
             <View
               style={{
-                flex: 1,
+                flex: 1.2,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 marginTop: 10,
+                width: 300,
               }}>
               {this.state.list2.map((item, key) => (
-                // <Text style={styles.TextStyle}> {item} </Text>
-                <ItemSentence
+                <ButtonWord
                   text={item}
                   action={() => this.pushList1AndDeleteItemInList2(item, key)}
                 />
@@ -200,9 +168,8 @@ class Listening extends Component {
           </View>
         </View>
 
-        <View style={{flex: 1}}>
-          <CheckButton />
-          {/* <CheckButton navigation={this.props.navigation}/> */}
+        <View style={{flex: 0.8}}>
+          <CheckButton correctSentence={this.state.sentence} answer={this.state.list1} navigation={this.props.navigation}/>
         </View>
       </View>
     );

@@ -6,7 +6,6 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 class IconClose extends Component {

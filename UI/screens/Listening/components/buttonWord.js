@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text} from 'react-native';
 import AwesomeButtonRick from 'react-native-really-awesome-button/src/themes/rick';
 
-class ItemSentence extends Component {
+class ButtonWord extends Component {
   render() {
-    const {text, size, id, action} = this.props;
+    const {text, action} = this.props;
     return (
       <View
         style={{
@@ -20,4 +20,4 @@ class ItemSentence extends Component {
   }
 }
 
-export default ItemSentence;
+export default ButtonWord;

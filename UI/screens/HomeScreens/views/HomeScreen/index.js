@@ -63,6 +63,14 @@ export default class HomeScreen extends Component {
                     <View>
                         <Exercise text='Động vật' uri={'https://imgur.com/FaGyX9d.png'} backgroundColor='#ff1a1a' navigation={this.props.navigation} nameScreen='NewWord'/>
                     </View>
+                    {/* listening */}
+                    <View>
+                        <Level uri={'https://cdn5.vectorstock.com/i/1000x1000/97/14/listening-music-icon-flat-style-vector-13349714.jpg'} />
+                    </View>
+                    <View>
+                        <Exercise text='Bài nghe tổng hợp' uri={'https://imgur.com/FaGyX9d.png'} backgroundColor='#ff1a1a' navigation={this.props.navigation} nameScreen='PlayList'/>
+                    </View>
+
                 </ScrollView>
             </View>
         );

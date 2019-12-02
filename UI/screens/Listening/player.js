@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import Sound from 'react-native-sound';
+import IconClose from '../Volcabulary/components/Icons/IconClose';
 
 const img_speaker = require('./resources/ui_speaker.png');
 const img_pause = require('./resources/ui_pause.png');
@@ -44,7 +45,7 @@ export default class Player extends Component {
         this.state.playState == 'playing' &&
         !this.sliderEditing
       ) {
-        this.sound.getCurrentTime((seconds) => {
+        this.sound.getCurrentTime(seconds => {
           this.setState({playSeconds: seconds});
         });
       }
@@ -156,60 +157,85 @@ export default class Player extends Component {
     const durationString = this.getAudioTimeString(this.state.duration);
     return (
       <View style={styles.container}>
-        <Image source={img_speaker} style={styles.img} />
-        <View style={styles.control}>
-          <TouchableOpacity
-            onPress={this.jumpPrev15Seconds}
-            style={{justifyContent: 'center'}}>
-            <Image source={img_playjumpleft} style={styles.imgicon} />
-            <Text style={styles.number}>15</Text>
-          </TouchableOpacity>
-          {this.state.playState == 'playing' && (
-            <TouchableOpacity
-              onPress={this.pause}
-              style={{marginHorizontal: 20}}>
-              <Image source={img_pause} style={styles.imgicon} />
-            </TouchableOpacity>
-          )}
-          {this.state.playState == 'paused' && (
-            <TouchableOpacity
-              onPress={this.play}
-              style={{marginHorizontal: 20}}>
-              <Image source={img_play} style={styles.imgicon} />
-            </TouchableOpacity>
-          )}
-          <TouchableOpacity
-            onPress={this.jumpNext15Seconds}
-            style={{justifyContent: 'center'}}>
-            <Image source={img_playjumpright} style={styles.imgicon} />
-            <Text style={styles.number}>15</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.control}>
-          <Text style={{color: 'white', alignSelf: 'center'}}>
-            {currentTimeString}
-          </Text>
-          <Slider
-            onTouchStart={this.onSliderEditStart}
-            //onTouchMove={() => console.log('onTouchMove')}
-            onTouchEnd={this.onSliderEditEnd}
-            //onTouchEndCapture={() => console.log('onTouchEndCapture')}
-           // onTouchCancel={() => console.log('onTouchCancel')}
-            onValueChange={this.onSliderEditing}
-            value={this.state.playSeconds}
-            maximumValue={this.state.duration}
-            maximumTrackTintColor="gray"
-            minimumTrackTintColor="white"
-            thumbTintColor="white"
+        <View style={{flext: 1, height: 50, flexDirection: 'row'}}>
+          <View
             style={{
               flex: 1,
-              alignSelf: 'center',
-              marginHorizontal: Platform.select({ios: 5}),
-            }}
-          />
-          <Text style={{color: 'white', alignSelf: 'center'}}>
-            {durationString}
-          </Text>
+              backgroundColor: 'blue',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <View style={{flex: 1}}>
+              <IconClose navigation={this.props.navigation} />
+            </View>
+            <Text
+              style={{
+                flex: 5,
+                fontSize: 28,
+                fontWeight: 'bold',
+                color: 'white',
+              }}>
+              Listening
+            </Text>
+          </View>
+        </View>
+        <View style={{flex:6, justifyContent: 'center',}}>
+          <Image source={img_speaker} style={styles.img} />
+          <View style={styles.control}>
+            <TouchableOpacity
+              onPress={this.jumpPrev15Seconds}
+              style={{justifyContent: 'center'}}>
+              <Image source={img_playjumpleft} style={styles.imgicon} />
+              <Text style={styles.number}>15</Text>
+            </TouchableOpacity>
+            {this.state.playState == 'playing' && (
+              <TouchableOpacity
+                onPress={this.pause}
+                style={{marginHorizontal: 20}}>
+                <Image source={img_pause} style={styles.imgicon} />
+              </TouchableOpacity>
+            )}
+            {this.state.playState == 'paused' && (
+              <TouchableOpacity
+                onPress={this.play}
+                style={{marginHorizontal: 20}}>
+                <Image source={img_play} style={styles.imgicon} />
+              </TouchableOpacity>
+            )}
+            <TouchableOpacity
+              onPress={this.jumpNext15Seconds}
+              style={{justifyContent: 'center'}}>
+              <Image source={img_playjumpright} style={styles.imgicon} />
+              <Text style={styles.number}>15</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.control}>
+            <Text style={{color: 'white', alignSelf: 'center'}}>
+              {currentTimeString}
+            </Text>
+            <Slider
+              onTouchStart={this.onSliderEditStart}
+              //onTouchMove={() => console.log('onTouchMove')}
+              onTouchEnd={this.onSliderEditEnd}
+              //onTouchEndCapture={() => console.log('onTouchEndCapture')}
+              // onTouchCancel={() => console.log('onTouchCancel')}
+              onValueChange={this.onSliderEditing}
+              value={this.state.playSeconds}
+              maximumValue={this.state.duration}
+              maximumTrackTintColor="gray"
+              minimumTrackTintColor="white"
+              thumbTintColor="white"
+              style={{
+                flex: 1,
+                alignSelf: 'center',
+                marginHorizontal: Platform.select({ios: 5}),
+              }}
+            />
+            <Text style={{color: 'white', alignSelf: 'center'}}>
+              {durationString}
+            </Text>
+          </View>
         </View>
       </View>
     );
@@ -219,7 +245,6 @@ export default class Player extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: 'black',
   },
   img: {

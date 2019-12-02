@@ -169,7 +169,9 @@ const App = createSwitchNavigator({
   NewWord: { screen: NewWord },
   NewWord2: {screen: NewWord2},
   Sentence: {screen: Sentence},
+  Player: {screen: Player},
   PlayList: {screen: PlayList},
+
   Listen: {screen: Listening},
   // Script: {screen: Script},
 
