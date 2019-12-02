@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
@@ -26,12 +26,18 @@ class Listening extends Component {
     };
   }
 
+<<<<<<< HEAD
   pushList1AndDeleteItemInList2(data, key) {
     var a = this.state.list1;
     var b = this.state.list2;
 
     a.push(data);
     b.splice(key, 1);
+=======
+  pushItemInList(data, key) {
+    var a = this.state.list1;
+    var b = this.state.list2;
+>>>>>>> ffc3eec4a3323e9ab7a4bd36c022f1618bd2b0af
 
     this.setState({
       list1: a,
@@ -49,10 +55,37 @@ class Listening extends Component {
     //delete
     a.splice(key, 1);
 
+<<<<<<< HEAD
     this.setState({
       list1: a,
       list2: b,
     });
+=======
+    a[this.state.count] = data;
+    this.setState({ list1: a });
+
+    //delete
+    b.splice(key, 1);
+    this.setState({ list2: b });
+  }
+
+  resetComponent() {
+    this.setState({ list1: [] });
+    this.setState({
+      list2: [
+        'a',
+        'teacher',
+        'I',
+        'am',
+        'man',
+        'girl',
+        'a',
+        'teacher',
+        'I',
+        'am',
+      ]
+    })
+>>>>>>> ffc3eec4a3323e9ab7a4bd36c022f1618bd2b0af
   }
 
   render() {
@@ -95,8 +128,13 @@ class Listening extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
+<<<<<<< HEAD
           <Text style={{fontSize: 20, fontWeight: 'bold'}}>
             Nghe và hoàn thành câu
+=======
+          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+            Nghe và điền vào chỗ trống
+>>>>>>> ffc3eec4a3323e9ab7a4bd36c022f1618bd2b0af
           </Text>
         </View>
 
@@ -107,7 +145,7 @@ class Listening extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-          <View style={{flex: 1.8, flexDirection: 'row'}}>
+          <View style={{ flex: 1.8, flexDirection: 'row' }}>
             <View
               style={{
                 flex: 1,
@@ -117,12 +155,12 @@ class Listening extends Component {
                 marginRight: 0.1 * widthScreen,
               }}>
               <IconSound
-                styles={{width: 150, height: 150, borderRadius: 80}}
+                styles={{ width: 150, height: 150, borderRadius: 80 }}
                 img={require('../Listening/resources/sound.jpg')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
               <IconSound
-                styles={{width: 80, height: 80, borderRadius: 80, bottom: -60}}
+                styles={{ width: 80, height: 80, borderRadius: 80, bottom: -60 }}
                 img={require('../Listening/resources/slow.png')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
@@ -161,15 +199,25 @@ class Listening extends Component {
               {this.state.list2.map((item, key) => (
                 <ButtonWord
                   text={item}
+<<<<<<< HEAD
                   action={() => this.pushList1AndDeleteItemInList2(item, key)}
+=======
+                  action={() => this.pushItemInList(item, key)}
+>>>>>>> ffc3eec4a3323e9ab7a4bd36c022f1618bd2b0af
                 />
               ))}
             </View>
           </View>
         </View>
 
+<<<<<<< HEAD
         <View style={{flex: 0.8}}>
           <CheckButton correctSentence={this.state.sentence} answer={this.state.list1} navigation={this.props.navigation}/>
+=======
+        <View style={{ flex: 1 }}>
+          <CheckButton />
+          {/* <CheckButton navigation={this.props.navigation}/> */}
+>>>>>>> ffc3eec4a3323e9ab7a4bd36c022f1618bd2b0af
         </View>
       </View>
     );
