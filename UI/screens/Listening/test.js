@@ -3,7 +3,8 @@ import {
   StyleSheet,
   View,
   Dimensions,
-  Text
+  Text,
+  TouchableOpacity,
 } from 'react-native';
 
 import ProgressBar from '../Volcabulary/components/ProgressBar';
@@ -12,6 +13,7 @@ import CheckButton from './components/checkButton'
 import IconClose from '../Volcabulary/components/Icons/IconClose';
 import ButtonWord from './components/buttonWord';
 import IconSound from './components/iconSound';
+import { TextInput } from 'react-native-gesture-handler';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
 
@@ -20,7 +22,7 @@ class Listening extends Component {
     super(props);
     this.state = {
       list1: [],
-      list2: ['a', 'teacher', 'I', 'am', 'man', 'girl', 'a', 'I'],
+      list2: ['a', 'teacher', 'Is', 'am', 'man', 'girl', 'a', 'I'],
       sentence: "I am a man",
       answer:""
     };
@@ -107,7 +109,7 @@ class Listening extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-          <View style={{ flex: 1.8, flexDirection: 'row' }}>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
             <View
               style={{
                 flex: 1,
@@ -117,12 +119,12 @@ class Listening extends Component {
                 marginRight: 0.1 * widthScreen,
               }}>
               <IconSound
-                styles={{ width: 150, height: 150, borderRadius: 80 }}
+                styles={{ width: 100, height: 100, borderRadius: 50 }}
                 img={require('../Listening/resources/sound.jpg')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
               <IconSound
-                styles={{ width: 80, height: 80, borderRadius: 80, bottom: -60 }}
+                styles={{ width: 50, height: 50, borderRadius: 50, bottom: -30 }}
                 img={require('../Listening/resources/slow.png')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
@@ -139,23 +141,28 @@ class Listening extends Component {
               style={{
                 flex: 1,
                 flexDirection: 'row',
-                backgroundColor: 'gray',
+                backgroundColor: 'white',
                 borderRadius: 10,
                 flexWrap: 'wrap',
               }}>
+                
               {this.state.list1.map((item, key) => (
                 <ButtonWord
                   text={item}
                   action={() => this.pushList2AndDeleteItemInList1(item, key)}
                 />
               ))}
+              
             </View>
             <View
               style={{
-                flex: 1.2,
+                flex: 1,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                marginTop: 10,
+                justifyContent:'center',
+                alignItems: 'center',
+                marginHorizontal: 20,
+                marginVertical: 20,
                 width: 300,
               }}>
               {this.state.list2.map((item, key) => (

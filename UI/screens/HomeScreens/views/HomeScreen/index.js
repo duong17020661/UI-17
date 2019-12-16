@@ -14,18 +14,18 @@ export default class HomeScreen extends Component {
                         <Level uri={'https://imgur.com/fRBEopr.png'} />
                     </View>
                     <View>
-                        <Exercise text='Cơ bản' uri={'https://imgur.com/5VhV1RM.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord'/>
+                        <Exercise text='Từ vựng 1' uri={'https://imgur.com/5VhV1RM.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord'/>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Exercise text='Tính từ' uri={'https://imgur.com/tMzBSO7.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Sentence'/>
-                        <Exercise text='Động từ' uri={'https://imgur.com/tFrM33U.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen'/>
+                        <Exercise text='Viết 1' uri={'https://imgur.com/tMzBSO7.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Sentence'/>
+                        <Exercise text='Nghe 1' uri={'https://imgur.com/tFrM33U.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen'/>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Exercise text='Số nhiều ' uri={'https://imgur.com/AtVaoWW.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord'/>
-                        <Exercise text='Món ăn' uri={'https://imgur.com/5q1tHlL.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord'/>
+                        <Exercise text='Từ vựng 2' uri={'https://imgur.com/AtVaoWW.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord2'/>
+                        <Exercise text='Viết 2' uri={'https://imgur.com/5q1tHlL.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Sentence2'/>
                     </View>
                     <View>
-                        <Exercise text='Động vật' uri={'https://imgur.com/FaGyX9d.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord'/>
+                        <Exercise text='Nghe 2' uri={'https://imgur.com/FaGyX9d.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen'/>
                     </View>
                     {/* Level2 */}
                     <View>

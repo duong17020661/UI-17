@@ -17,6 +17,7 @@ import StoreScreen from './screens/StoreScreen';
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
 import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
 import Sentence from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence';
+import Sentence2 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence2';
 import Point from './screens/Volcabulary/views/Point/index';
 
 import PlayList from './screens/Listening/index';
@@ -171,6 +172,7 @@ const App = createSwitchNavigator({
   NewWord: { screen: NewWord },
   NewWord2: {screen: NewWord2},
   Sentence: {screen: Sentence},
+  Sentence2: {screen: Sentence2},
   Player: {screen: Player},
   PlayList: {screen: PlayList},
 

@@ -7,14 +7,15 @@ class ItemSentence extends Component {
     const {text, size, id, action} = this.props;
     return (
       <View
-        style={{
-          marginTop: 10,
-        }}>
-        <AwesomeButtonRick type="primary" onPress={action}>
-          <Text style={{margin: 10, fontSize: 20, justifyContent: 'center'}}>
+      style={{paddingHorizontal: 10 , flexDirection:'column', 
+      marginHorizontal: 10, marginVertical:10, height: 50 , borderRadius: 10, borderWidth: 2,
+      borderColor:'black',justifyContent: 'center', alignItems:'stretch',
+       }}> 
+        <TouchableOpacity type="primary" style={{alignItems: 'stretch'}} onPress={action}>
+          <Text style={{fontSize: 20}}>
             {text}
           </Text>
-        </AwesomeButtonRick>
+        </TouchableOpacity>
       </View>
     );
   }
