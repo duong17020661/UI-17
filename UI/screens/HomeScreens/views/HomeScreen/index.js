@@ -18,14 +18,14 @@ export default class HomeScreen extends Component {
                     </View>
                     <View style={{ flexDirection: 'row' }}>
                         <Exercise text='Viết 1' uri={'https://imgur.com/tMzBSO7.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Sentence'/>
-                        <Exercise text='Nghe 1' uri={'https://imgur.com/tFrM33U.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen'/>
+                        <Exercise text='Nghe 1' uri={'https://imgur.com/tFrM33U.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen2'/>
                     </View>
                     <View style={{ flexDirection: 'row' }}>
-                        <Exercise text='Từ vựng 2' uri={'https://imgur.com/AtVaoWW.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord2'/>
-                        <Exercise text='Viết 2' uri={'https://imgur.com/5q1tHlL.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Sentence2'/>
+                        <Exercise text='Từ vựng 2' uri={'https://imgur.com/AtVaoWW.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='NewWord3'/>
+                        <Exercise text='Viết 2' uri={'https://imgur.com/5q1tHlL.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Sentence3'/>
                     </View>
                     <View>
-                        <Exercise text='Nghe 2' uri={'https://imgur.com/FaGyX9d.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen'/>
+                        <Exercise text='Nghe 2' uri={'https://imgur.com/FaGyX9d.png'} backgroundColor='#66ff1a' navigation={this.props.navigation} nameScreen='Listen3'/>
                     </View>
                     {/* Level2 */}
                     <View>

@@ -14,15 +14,25 @@ import HomeScreen from './screens/HomeScreen';
 import ChartsScreen from './screens/ChartsScreen';
 import ProflieScreen from './screens/ProfileScreen';
 import StoreScreen from './screens/StoreScreen';
+
 import NewWord from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord';
 import NewWord2 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord2';
+import NewWord3 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord3';
+import NewWord4 from './screens/Volcabulary/views/VocabularyScreen/NewWord/NewWord4';
+
 import Sentence from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence';
 import Sentence2 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence2';
+import Sentence3 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence3';
+import Sentence4 from './screens/Volcabulary/views/VocabularyScreen/Sentence/Sentence4';
 import Point from './screens/Volcabulary/views/Point/index';
 
 import PlayList from './screens/Listening/index';
 import Player from './screens/Listening/player';
-import Listening from './screens/Listening/test'
+
+import Listening from './screens/Listening/Listen';
+import Listening2 from './screens/Listening/Listen2';
+import Listening3 from './screens/Listening/Listen3';
+import Listening4 from './screens/Listening/Listen4';
 // import Script from './screens/Listening/script';
 
 const HomeStack = createStackNavigator(
@@ -168,17 +178,27 @@ tabNavigator.path = '';
 
 const App = createSwitchNavigator({
   Login: { screen: Login },
-  Main: tabNavigator,
-  NewWord: { screen: NewWord },
-  NewWord2: {screen: NewWord2},
+
+  Sentence4: {screen: Sentence4},
+  Sentence3: {screen: Sentence3},
   Sentence: {screen: Sentence},
   Sentence2: {screen: Sentence2},
+  
+  Listen: {screen: Listening},
+  Listen2: {screen: Listening2},
+  Listen3: {screen: Listening3},
+  Listen4: {screen: Listening4},
+  
+  Main: tabNavigator,
+
+  NewWord: { screen: NewWord },
+  NewWord2: {screen: NewWord2},
+  NewWord3: {screen: NewWord3},
+  NewWord4: {screen: NewWord4},
+  
   Player: {screen: Player},
   PlayList: {screen: PlayList},
-
-  Listen: {screen: Listening},
   // Script: {screen: Script},
-
   Point: {screen: Point},
   Open1: { screen: Open1 },
   Open2: { screen: Open2 },

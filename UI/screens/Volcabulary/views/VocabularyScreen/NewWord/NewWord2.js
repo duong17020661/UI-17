@@ -11,7 +11,7 @@ import {
 import ProgressBar from '../../../components/ProgressBar';
 import Question from '../../../components/Question';
 import CheckButton from '../../../components/CheckButton/index';
-import Answer from '../../../components/Answer';
+import Answer from '../../../components/Answer/index';
 import IconClose from '../../../components/Icons/IconClose';
 
 

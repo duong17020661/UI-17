@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'stretch',
-    backgroundColor: 'rgb(234,195,176)',
+    backgroundColor: '#8af38e',
   },
   header: {
     flex: 1,

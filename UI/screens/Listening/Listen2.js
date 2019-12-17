@@ -7,11 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import ProgressBar from '../../../components/ProgressBar';
-import Question from '../../../components/Question';
-import CheckButton from '../../../components/CheckButton/index';
-import Answer from '../../../components/Answer/index2';
-import IconClose from '../../../components/Icons/IconClose';
+import ProgressBar from '../Volcabulary/components/ProgressBar';
+
+import IconClose from '../Volcabulary/components/Icons/IconClose';
+import ButtonWord from './components/buttonWord';
+import IconSound from './components/iconSound';
+import { TextInput } from 'react-native-gesture-handler';
+import CheckButton from '../Volcabulary/components/CheckButton/index';
+import Answer from '../Volcabulary/components/Answer/index2';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
 
@@ -97,15 +100,12 @@ class Listen2 extends Component {
 
         <View
           style={{
-            flex: 2,
+            flex: 1,
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-            <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-            
-          </Text>
           <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-            Chọn đáp án thích hợp điền vào chỗ trống
+            Nghe và hoàn thành câu
           </Text>
         </View>
 
@@ -116,7 +116,27 @@ class Listen2 extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-          
+          <View style={{ flex: 2, flexDirection: 'row' }}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                marginLeft: 0.1 * widthScreen,
+                marginRight: 0.1 * widthScreen,
+              }}>
+              <IconSound
+                styles={{ width: 100, height: 100, borderRadius: 50 }}
+                img={require('../Listening/resources/sound.jpg')}
+                urlSound={require('../Listening/music/i_am_a_man.mp3')}
+              />
+              <IconSound
+                styles={{ width: 50, height: 50, borderRadius: 50, bottom: -30 }}
+                img={require('../Listening/resources/slow.png')}
+                urlSound={require('../Listening/music/i_am_a_man.mp3')}
+              />
+            </View>
+          </View>
           <View
           style={{
             flex: 1,
@@ -124,7 +144,7 @@ class Listen2 extends Component {
             marginRight: 0.05 * widthScreen,
           }}>
           <Text style={{fontSize: 25}}>
-            He ___.___ student.
+            I am a ___.
           </Text>
         </View>
         <View style={{
@@ -135,18 +155,18 @@ class Listen2 extends Component {
                 }}>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_A}>
-                            <Answer  text='is a' flag='1' isActive={this.state.activeIndex === 1} />
+                            <Answer  text='Man' flag='1' isActive={this.state.activeIndex === 1} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_B}>
-                            <Answer  text='is an' flag='2' isActive={this.state.activeIndex === 2} />
+                            <Answer  text='Girl' flag='2' isActive={this.state.activeIndex === 2} />
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_C}>
-                            <Answer text='are a' flag='3' isActive={this.state.activeIndex === 3} />
+                            <Answer text='Men' flag='3' isActive={this.state.activeIndex === 3} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_D}>
-                            <Answer text='are an' flag='4' isActive={this.state.activeIndex === 4} />
+                            <Answer text='Boy' flag='4' isActive={this.state.activeIndex === 4} />
                         </TouchableOpacity>
                     </View>
 
@@ -154,7 +174,7 @@ class Listen2 extends Component {
         </View>
 
         <View style={{flex:     1.5}}>
-        <CheckButton check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} navigation={this.props.navigation} numberScreen='4'/>
+        <CheckButton check={this.state.activeIndex === 0} checkItem = {this.state.activeIndex} navigation={this.props.navigation} numberScreen='3'/>
         </View>
       </View>
     );

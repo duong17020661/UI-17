@@ -24,7 +24,7 @@ class CheckButton extends Component {
         [
           {
             text: 'Tiếp tục',
-            onPress: () => this.props.navigation.navigate('NewWord2')
+            onPress: () => this.props.navigation.navigate('Point')
           }
         ],
         {cancelable: false},
@@ -36,12 +36,12 @@ class CheckButton extends Component {
         [
           {
             text: 'Chọn lại',
-            onPress: () => this.props.navigation.navigate('Sentence'),
+            onPress: () => this.props.navigation.navigate('Sentence2'),
             style: 'cancel',
           },
           {
             text: 'Tiếp tục',
-            onPress: () => this.props.navigation.navigate('NewWord2')
+            onPress: () => this.props.navigation.navigate('Point')
           },
         ],
         {cancelable: false},
