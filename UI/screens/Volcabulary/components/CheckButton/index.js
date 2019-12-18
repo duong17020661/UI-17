@@ -65,7 +65,7 @@ class CheckButton extends Component {
         else if (numberScreen === '4') {
             if (checkItem === 1) {
                 Alert.alert(
-                    numberScreen,
+                    '1',
                     'Đáp án chính xác',
                     [
                         { text: 'Tiếp tục', onPress: () => this.props.navigation.navigate('Sentence2') },
@@ -75,7 +75,7 @@ class CheckButton extends Component {
             }
             else {
                 Alert.alert(
-                    numberScreen,
+                    '1',
                     'Đáp án không chính xác',
                     [
                         { text: 'Chọn lại', onPress: () => this.props.navigation.navigate('Sentence'), style: 'cancel' },

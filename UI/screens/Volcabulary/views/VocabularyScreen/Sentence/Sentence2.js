@@ -13,52 +13,45 @@ import ProgressBar from '../../../components/ProgressBar';
 import Question from '../../../components/Question';
 import IconClose from '../../../components/Icons/IconClose';
 import ItemSentence from '../../../components/ItemSentence';
-import CheckSentence from '../../../components/CheckButton/checkSentence';
-
-import { StackActions, NavigationActions } from 'react-navigation';
+import CheckSentence from '../../../components/CheckButton/checkSentence2';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
 
 class Sentence extends Component {
     constructor(props) {
         super(props);
-        this.props ={
-            list11: [],
-            list22: ['a', 'teacher', 'He', 'is', 'U', '17'],
-        }
+       
         this.state = {
             list1: [],
             list2: ['a', 'teacher', 'He', 'is', 'U', '17'],
-            sentence: "He is a teacher",
-            answer:"",
+            sentence: [ 'He', 'is', 'a', 'teacher'],
             count1: 0,
             count2: 6,
         };
         this.pushOrDeleteItemInList = this.pushOrDeleteItemInList.bind(this);
         this.resetComponent = this.resetComponent.bind(this);
-
     }
 
     pushOrDeleteItemInList(data, key) {
         var a = this.state.list1;
         var b = this.state.list2;
         //push
+        a[this.state.count1] = data;
+        //delete
+        b.splice(key, 1);
         this.setState({
             count1: this.state.count1 + 1,
             count2: this.state.count2 - 1,
-        })
-
-        a[this.state.count1] = data;
-        this.setState({ list1: a });
-        //delete
-        b.splice(key, 1);
-        this.setState({ list2: b });
-
+            list1: a,
+            list2: b,
+        })   
     }
 
     resetComponent() {
-        this.setState({list1: []});
-        this.setState({list2: ['a', 'teacher', 'He', 'is', 'U', '17']})
+        this.setState({ list1: [] });
+        this.setState({ list2: ['a', 'teacher', 'He', 'is', 'U', '17'] })
+        this.setState({count1: 0})
+        this.setState({count2: 6})
     }
 
 
@@ -89,7 +82,7 @@ class Sentence extends Component {
                             borderRadius={10}
                             height={18}
                             width={widthScreen * 0.9}
-                            progress={0}
+                            progress={0.5}
                         />
                     </View>
                 </View>
@@ -111,7 +104,7 @@ class Sentence extends Component {
                     <TouchableOpacity onPress={() => this.resetComponent()}>
                         <Image
                             style={{ height: 30, width: 30 }}
-                            source={{ uri: 'https://imgur.com/YmEWh2n.png' }}
+                            source={{ uri: 'https://imgur.com/m1Igv6j.png' }}
 
                         />
                     </TouchableOpacity>
@@ -123,11 +116,12 @@ class Sentence extends Component {
                     marginLeft: 0.05 * widthScreen,
                     marginRight: 0.05 * widthScreen,
                 }}>
-                    <View  style={{
+                    <View style={{
                         flex: 1,
                         flexDirection: 'row',
                         backgroundColor: 'white',
                         borderRadius: 10,
+                        
                         flexWrap: 'wrap',
                     }}>
                         {this.state.list1.map((item, key) => (
@@ -141,7 +135,7 @@ class Sentence extends Component {
                         flex: 1,
                         flexDirection: 'row',
                         flexWrap: 'wrap',
-                        justifyContent:'center',
+                        justifyContent: 'center',
                         alignItems: 'center',
                         marginHorizontal: 20,
                         marginVertical: 20,
@@ -149,14 +143,14 @@ class Sentence extends Component {
                     }}>
 
                         {this.state.list2.map((item, key) => (
-                        <ItemSentence text={item} action={() => this.pushOrDeleteItemInList(item, key)} />
+                            <ItemSentence text={item} action={() => this.pushOrDeleteItemInList(item, key)} />
                         )
                         )}
                     </View>
                 </View>
 
                 <View style={{ flex: 1 }}>
-                    <CheckSentence correctSentence={this.state.sentence} answer={this.state.list1} navigation={this.props.navigation} />
+                    <CheckSentence checkFocus={this.state.count1 === 0} correctSentence={this.state.sentence} answer={this.state.list1} navigation={this.props.navigation} numberScreen={2}/>
                 </View>
 
             </View>
