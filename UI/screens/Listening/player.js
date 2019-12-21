@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import Sound from 'react-native-sound';
-import IconClose from '../Volcabulary/components/Icons/IconClose';
+import IconBack from './components/IconBack';
 
 const img_speaker = require('./resources/ui_speaker.png');
 const img_pause = require('./resources/ui_pause.png');
@@ -88,9 +88,11 @@ export default class Player extends Component {
           Alert.alert('Notice', 'audio file error. (Error code : 1)');
           this.setState({playState: 'paused'});
         } else {
+          var time = this.sound.getDuration();
+          console.log(time);
           this.setState({
             playState: 'playing',
-            //duration: this.sound.getDuration(),
+            duration: time,
           });
           this.sound.play(this.playComplete);
         }
@@ -167,7 +169,7 @@ export default class Player extends Component {
               alignItems: 'center',
             }}>
             <View style={{flex: 1}}>
-              <IconClose navigation={this.props.navigation} />
+              <IconBack navigation={this.props.navigation} screen="PlayList" />
             </View>
             <Text
               style={{

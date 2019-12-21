@@ -155,18 +155,18 @@ class Listen2 extends Component {
                 }}>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_A}>
-                            <Answer  text='Man' flag='1' isActive={this.state.activeIndex === 1} />
+                            <Answer  text='A.Man' flag='1' isActive={this.state.activeIndex === 1} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_B}>
-                            <Answer  text='Girl' flag='2' isActive={this.state.activeIndex === 2} />
+                            <Answer  text='B.Girl' flag='2' isActive={this.state.activeIndex === 2} />
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_C}>
-                            <Answer text='Men' flag='3' isActive={this.state.activeIndex === 3} />
+                            <Answer text='C.Men' flag='3' isActive={this.state.activeIndex === 3} />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ flex: 1, alignItems: 'center' }} onPress={this.changeActiveIndex_D}>
-                            <Answer text='Boy' flag='4' isActive={this.state.activeIndex === 4} />
+                            <Answer text='D.Boy' flag='4' isActive={this.state.activeIndex === 4} />
                         </TouchableOpacity>
                     </View>
 

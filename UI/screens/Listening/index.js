@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView, View, TouchableOpacity, Text} from 'react-native';
-import IconClose from '../Volcabulary/components/Icons/IconClose';
+import IconBack from './components/IconBack';
 import Audio from './audio';
 
 const audio = [
@@ -60,7 +60,7 @@ export default class PlayList extends Component {
               alignItems: 'center',
             }}>
             <View style={{flex: 1}}>
-              <IconClose navigation={this.props.navigation} />
+              <IconBack navigation={this.props.navigation} screen="Main" />
             </View>
             <Text
               style={{
@@ -80,7 +80,7 @@ export default class PlayList extends Component {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}
-              onPress={() => this.props.navigation.navigate('Scripts')}
+              onPress={() => this.props.navigation.navigate('Script')}
               >
               <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
                 Script
@@ -94,7 +94,7 @@ export default class PlayList extends Component {
               title={testInfo.title}
               key={testInfo.title}
               handle={() => {
-                this.props.navigation.navigate('Player', {
+                this.props.navigation.navigate('PlayMusic', {
                   id: testInfo.title,
                   filepath: testInfo.url,
                 });

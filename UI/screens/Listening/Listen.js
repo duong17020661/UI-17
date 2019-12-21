@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   StyleSheet,
   View,
   Dimensions,
   Text,
-  TouchableOpacity,
+  ImageBackground,
 } from 'react-native';
 
 import ProgressBar from '../Volcabulary/components/ProgressBar';
-import CheckButton from './components/checkButton'
+import CheckButton from './components/checkButton';
 
 import IconClose from '../Volcabulary/components/Icons/IconClose';
 import ButtonWord from './components/buttonWord';
 import IconSound from './components/iconSound';
-import { TextInput } from 'react-native-gesture-handler';
 
 var widthScreen = 0.9 * Dimensions.get('window').width;
 
@@ -22,9 +21,9 @@ class Listening extends Component {
     super(props);
     this.state = {
       list1: [],
-      list2: ['a', 'teacher', 'Is', 'am', 'man', 'girl', 'a', 'I'],
-      sentence: "I am a man",
-      answer:""
+      list2: ['a', 'teacher', 'Is', 'am', 'man', 'girl', 'I', 'doctor', 'Is', 'am'],
+      sentence: 'I am a man',
+      answer: '',
     };
   }
 
@@ -86,7 +85,7 @@ class Listening extends Component {
               borderRadius={10}
               height={18}
               width={widthScreen * 0.9}
-              progress={0}
+              progress={1/2}
             />
           </View>
         </View>
@@ -109,7 +108,7 @@ class Listening extends Component {
             marginLeft: 0.05 * widthScreen,
             marginRight: 0.05 * widthScreen,
           }}>
-          <View style={{ flex: 1, flexDirection: 'row' }}>
+          <View style={{flex: 1, flexDirection: 'row'}}>
             <View
               style={{
                 flex: 1,
@@ -119,12 +118,12 @@ class Listening extends Component {
                 marginRight: 0.1 * widthScreen,
               }}>
               <IconSound
-                styles={{ width: 100, height: 100, borderRadius: 50 }}
+                styles={{width: 100, height: 100, borderRadius: 50}}
                 img={require('../Listening/resources/sound.jpg')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
               <IconSound
-                styles={{ width: 50, height: 50, borderRadius: 50, bottom: -30 }}
+                styles={{width: 50, height: 50, borderRadius: 50, bottom: -30}}
                 img={require('../Listening/resources/slow.png')}
                 urlSound={require('../Listening/music/i_am_a_man.mp3')}
               />
@@ -134,36 +133,40 @@ class Listening extends Component {
             style={{
               flex: 3,
               flexDirection: 'column',
-              marginLeft: 0.05 * widthScreen,
-              marginRight: 0.05 * widthScreen,
+              marginLeft: 0.01 * widthScreen,
+              marginRight: 0.01 * widthScreen,
             }}>
             <View
               style={{
                 flex: 1,
-                flexDirection: 'row',
-                backgroundColor: 'white',
                 borderRadius: 10,
-                flexWrap: 'wrap',
               }}>
-                
-              {this.state.list1.map((item, key) => (
-                <ButtonWord
-                  text={item}
-                  action={() => this.pushList2AndDeleteItemInList1(item, key)}
-                />
-              ))}
-              
+              <ImageBackground
+                source={require('./resources/back.png')}
+                style={{
+                  width: 322,
+                  height: '100%',
+                  flexWrap: 'wrap',
+                  flexDirection: 'row',
+                }}>
+                {this.state.list1.map((item, key) => (
+                  <ButtonWord
+                    text={item}
+                    action={() => this.pushList2AndDeleteItemInList1(item, key)}
+                  />
+                ))}
+              </ImageBackground>
             </View>
+            
             <View
               style={{
                 flex: 1,
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                justifyContent:'center',
+                justifyContent: 'center',
                 alignItems: 'center',
-                marginHorizontal: 20,
-                marginVertical: 20,
-                width: 300,
+                width: 320,
+                paddingTop: 20
               }}>
               {this.state.list2.map((item, key) => (
                 <ButtonWord
@@ -176,7 +179,11 @@ class Listening extends Component {
         </View>
 
         <View style={{flex: 0.8}}>
-          <CheckButton correctSentence={this.state.sentence} answer={this.state.list1} navigation={this.props.navigation}/>
+          <CheckButton
+            correctSentence={this.state.sentence}
+            answer={this.state.list1}
+            navigation={this.props.navigation}
+          />
         </View>
       </View>
     );

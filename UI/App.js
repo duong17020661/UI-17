@@ -28,6 +28,8 @@ import Point from './screens/Volcabulary/views/Point/index';
 
 import PlayList from './screens/Listening/index';
 import Player from './screens/Listening/player';
+import PlayMusic from './screens/Listening/playMusic';
+import Script from './screens/Listening/script';
 
 import Listening from './screens/Listening/Listen';
 import Listening2 from './screens/Listening/Listen2';
@@ -197,8 +199,9 @@ const App = createSwitchNavigator({
   NewWord4: {screen: NewWord4},
   
   Player: {screen: Player},
+  PlayMusic: {screen: PlayMusic},
   PlayList: {screen: PlayList},
-  // Script: {screen: Script},
+  Script: {screen: Script},
   Point: {screen: Point},
   Open1: { screen: Open1 },
   Open2: { screen: Open2 },
