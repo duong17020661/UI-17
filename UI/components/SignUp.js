@@ -46,7 +46,17 @@ export default class SignUp extends React.Component {
       Alert.alert("Email Correct");
     }
     else{
-      this.props.navigation.navigate('Login')
+      Alert.alert(
+        'THÔNG BÁO',
+        'Đăng ký thành công',
+        [
+          {
+            text: 'OK',
+            onPress: () => this.props.navigation.navigate('Login')
+          }
+        ],
+        {cancelable: false},
+      );
     }
 
   }
@@ -74,6 +84,7 @@ export default class SignUp extends React.Component {
           <TextInput
             style={styles.input}
             placeholder='Re Password'
+            secureTextEntry={true}
             autoCapitalize="none"
             underlineColorAndroid={'transparent'}
             onChangeText={(text) => { this.setState({ RePassword: text }) }}

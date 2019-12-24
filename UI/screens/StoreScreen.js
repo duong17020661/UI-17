@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, TouchableWithoutFeedback,Keyboard } from 'react-native';
 // You can import from local files
 // or any pure javascript modules available in npm
 
@@ -34,25 +34,39 @@ class StoreScreen extends Component {
 
   }
   TranslateToVietNamese() {
+    var count = 0;
     for (let i = 0; i < this.state.dictionary.length; i++) {
-      if (this.state.INPUT == this.state.dictionary[i].English) this.setState({ OUTPUT: this.state.dictionary[i].VietNamese })
-    }
+      if (this.state.INPUT == this.state.dictionary[i].English){
+        this.setState({ OUTPUT: this.state.dictionary[i].VietNamese })
+        count++;
+      }
+      if(count == 0){
+        this.setState({ OUTPUT: '' })
+      }
   }
+}
   TranslateToEnglish() {
+    var count = 0;
     for (let i = 0; i < this.state.dictionary.length; i++) {
-      if (this.state.INPUT == this.state.dictionary[i].VietNamese) this.setState({ OUTPUT: this.state.dictionary[i].English })
+      if (this.state.INPUT == this.state.dictionary[i].VietNamese){
+        this.setState({ OUTPUT: this.state.dictionary[i].English })
+        count++;
+    }
+      if(count == 0){
+        this.setState({ OUTPUT: '' })
+      }
     }
   }
   render() {
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-
+        <Text style={styles.header}>Translate</Text>
         <TextInput
           placeholder="Nhập từ cần tra"
           onChangeText={(INPUT) => this.setState({ INPUT })}
           value={this.state.INPUT}
           style={styles.In}
-          autoFocus="true"
           keyboardType='default'
         
         />
@@ -61,14 +75,14 @@ class StoreScreen extends Component {
           onPress={() => this.TranslateToVietNamese()}
           style={styles.buttonVietNam} >
           <Text style={{ color: 'white' }}>
-            Tiếng Việt
+            Eng to Vie
             </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => this.TranslateToEnglish()}
           style={styles.buttonEnglish} >
           <Text style={{ color: 'white' }}>
-            English
+            Vie to Eng
             </Text>
         </TouchableOpacity>
 
@@ -83,6 +97,7 @@ class StoreScreen extends Component {
           {this.state.OUTPUT}
         </Text>
       </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -110,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 21,
   },
   Out: {
-    height: 200,
+    height: 100,
     borderWidth: 1,
     borderColor: '#385999',
     width: 300,
@@ -135,6 +150,15 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 7,
     margin: 19,
+  },
+  header: {
+    fontSize: 34,
+    color: "blue",
+    paddingBottom: 10,
+    marginBottom: 40,
+    borderBottomColor: 'red',
+    borderBottomWidth: 1,
+    fontWeight: 'bold'
   },
 
 });
